@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/1.png">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/cmp1.png">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/cmp2.png">
-<meta property="og:updated_time" content="2019-08-12T17:44:42.966Z">
+<meta property="og:updated_time" content="2019-08-16T11:35:07.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客那些事儿">
 <meta name="twitter:description" content="从今年7月决定搭建个人博客到今天博客基本成形经历了一个月的时间，从对博客搭建一无所知到小有心得，中间犯过许多错，踩过许多坑；有的坑是借鉴别人的经验度过的，有的坑是自己不断尝试找到解决方法的。所以想记录下我在搭建博客以及之后的使用过程中遇到的坑，希望对读者有所裨益。">
@@ -385,7 +385,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-13 01:44:42" itemprop="dateModified" datetime="2019-08-13T01:44:42+08:00">2019-08-13</time>
+                <time title="修改时间：2019-08-16 19:35:07" itemprop="dateModified" datetime="2019-08-16T19:35:07+08:00">2019-08-16</time>
               </span>
             
           
@@ -466,10 +466,11 @@
 <p>​                                                                        <strong><font color="red" size="5">此博客长期更新</font></strong></p>
 <hr>
 <h3 id="一、搭建博客踩的坑"><a href="#一、搭建博客踩的坑" class="headerlink" title="一、搭建博客踩的坑"></a>一、搭建博客踩的坑</h3><h4 id="1-我的学习对象"><a href="#1-我的学习对象" class="headerlink" title="1.我的学习对象"></a>1.我的学习对象</h4><p>​    <a href="https://www.lixint.me" target="_blank" rel="noopener"><font color="blue">LixT</font></a>大佬的博客搭建教程在我所看过的所有教程中堪称是<font color="red">最  <font size="4">最</font>  <font size="5">最</font>0基础</font>的。我的个人博客基本是按照LixT的教程实现的。但是在过程中还是遇到了一些麻烦，还有一些思路上的不同，所以这篇博文就相当于是对LixT教程的一个小小的补充。</p>
-<h4 id="2-尚未写完。。。。。。。"><a href="#2-尚未写完。。。。。。。" class="headerlink" title="2.尚未写完。。。。。。。"></a>2.尚未写完。。。。。。。</h4><h3 id="二、博客维护踩的坑"><a href="#二、博客维护踩的坑" class="headerlink" title="二、博客维护踩的坑"></a>二、博客维护踩的坑</h3><h4 id="1-lt-more-gt-失效"><a href="#1-lt-more-gt-失效" class="headerlink" title="1.&lt;!-- more --&gt;失效"></a>1.<font color="red"><code>&lt;!-- more --&gt;</code></font>失效</h4><p>​    对于较长的博文，博文在主页展示时如果全部展示不仅不美观，而且十分的浪费空间。在Markdown的语法中，我们可以在博客中使用<font color="red"><code>&lt;!-- more --&gt;</code></font>,之前的内容可以在主页显示，之后的内容进入博客后才能看到。但是经常遇到的问题确实博文主页的确不是显示全文，但是显示的内容却也不是按照我们的想法来进行分割的。对想要在主页展示部分图片的用户造成了极大的困扰。</p>
+<h4 id="2-尚未写完。。。。。。。"><a href="#2-尚未写完。。。。。。。" class="headerlink" title="2.尚未写完。。。。。。。"></a>2.尚未写完。。。。。。。</h4><h3 id="二、博客维护踩的坑"><a href="#二、博客维护踩的坑" class="headerlink" title="二、博客维护踩的坑"></a>二、博客维护踩的坑</h3><h4 id="1-失效"><a href="#1-失效" class="headerlink" title="1.失效"></a>1.<font color="red"><a><!-- more --></a></font>失效</h4><p>​    对于较长的博文，博文在主页展示时如果全部展示不仅不美观，而且十分的浪费空间。在Markdown的语法中，我们可以在博客中使用<font color="red"><code>&lt;!-- more --&gt;</code></font>,之前的内容可以在主页显示，之后的内容进入博客后才能看到。但是经常遇到的问题确实博文主页的确不是显示全文，但是显示的内容却也不是按照我们的想法来进行分割的。对想要在主页展示部分图片的用户造成了极大的困扰。</p>
 <p><img src="/2019/08/10/personal-blog/1.png" alt="1"></p>
-<p>​    在主题配置文件中找到上图内容，配置文件中<font color="blue"><code>excerpt_description</code></font>默认设置为true，这导致主页始终只能显示md文件的front-matter（可理解为 序言）部分的 description内容。将<font color="blue"><code>excerpt_description</code></font>设置为false后，<font color="red"><code>&lt;!-- more --&gt;</code></font>就能有效果了。</p>
-<p>​    如果不想进入博文后直接从<font color="red"><code>&lt;!-- more --&gt;</code></font>后的内容开始阅读，可以将<font color="blue"><code>scroll_to_more</code></font>设置为false，此项根据个人需要决定。</p>
+<p>​    在主题配置文件中找到上图内容，配置文件中<font color=blue><code>excerpt_description</code></font>默认设置为true，这导致主页始终只能显示md文件的front-matter（可理解为 序言）部分的 description内容。将<font color="blue"><code>excerpt_description</code></font>设置为false后，<font color="red"><code>&lt;!-- more --&gt;</code></font>就能有效果了。</p>
+<p>​    如果不想进入博文后直接从<font color="red"><code>&lt;!-- more --&gt;</code></font>后的内容开始阅读，</p>
+<p>可以将<font color="blue"><code>scroll_to_more</code></font>设置为false，此项根据个人需要决定。</p>
 <h4 id="2-网页中图片无法显示"><a href="#2-网页中图片无法显示" class="headerlink" title="2.网页中图片无法显示"></a>2.网页中图片无法显示</h4><p>​    这个问题是很多人都遇到过的问题，在本地 编辑，甚至在一些Markdown编辑器中图片都能正常显示，但是网页中却显示不出来。</p>
 <p>​    博客编辑时，图片的组织有两种方式，一种是直接存放在<font color="red"><code>source\images</code></font>文件夹之内，但是并不太推荐此种方式，因为含有多篇博文时，所有博文的图片都放在图一个文件夹中，不利于图片的管理；第二种方式可以形象的理解为“一个萝卜一个坑”，每篇博文，都对应有一个同名文件夹，将本篇博文的图片放在该文件夹中即可。</p>
 <p>​    第二种方式的具体操作如下：</p>
@@ -753,7 +754,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、搭建博客踩的坑"><span class="nav-number">1.</span> <span class="nav-text">一、搭建博客踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-我的学习对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.我的学习对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-尚未写完。。。。。。。"><span class="nav-number">1.2.</span> <span class="nav-text">2.尚未写完。。。。。。。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、博客维护踩的坑"><span class="nav-number">2.</span> <span class="nav-text">二、博客维护踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-lt-more-gt-失效"><span class="nav-number">2.1.</span> <span class="nav-text">1.&lt;!-- more --&gt;失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-网页中图片无法显示"><span class="nav-number">2.2.</span> <span class="nav-text">2.网页中图片无法显示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-修改主题配置文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.修改主题配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装hexo-asset-image插件"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.安装hexo-asset-image插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-使用-图片描述-（文件夹名-图片名）引用图片"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.使用![图片描述]（文件夹名/图片名）引用图片</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-代码块的-复制-按钮与打赏-按钮在Github上变形"><span class="nav-number">2.3.</span> <span class="nav-text">3.代码块的 复制 按钮与打赏 按钮在Github上变形</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、搭建博客踩的坑"><span class="nav-number">1.</span> <span class="nav-text">一、搭建博客踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-我的学习对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.我的学习对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-尚未写完。。。。。。。"><span class="nav-number">1.2.</span> <span class="nav-text">2.尚未写完。。。。。。。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、博客维护踩的坑"><span class="nav-number">2.</span> <span class="nav-text">二、博客维护踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-失效"><span class="nav-number">2.1.</span> <span class="nav-text">1.失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-网页中图片无法显示"><span class="nav-number">2.2.</span> <span class="nav-text">2.网页中图片无法显示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-修改主题配置文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.修改主题配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装hexo-asset-image插件"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.安装hexo-asset-image插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-使用-图片描述-（文件夹名-图片名）引用图片"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.使用![图片描述]（文件夹名/图片名）引用图片</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-代码块的-复制-按钮与打赏-按钮在Github上变形"><span class="nav-number">2.3.</span> <span class="nav-text">3.代码块的 复制 按钮与打赏 按钮在Github上变形</span></a></li></ol></li></ol></div>
             
 
           </div>
