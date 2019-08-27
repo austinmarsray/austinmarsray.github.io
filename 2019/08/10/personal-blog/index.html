@@ -438,7 +438,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.8k</span>
+              <span title="本文字数">1.9k</span>
             </span>
           
 
@@ -473,23 +473,21 @@
       
         <p><img src="/2019/08/10/personal-blog/blog-logo.jpg" alt="blog-logo"></p>
 <a id="more"></a>
-
 <hr>
 <p>​                                                                        <strong><font color="red" size="5">此博客长期更新</font></strong></p>
 <hr>
-<h3 id="一、搭建博客踩的坑"><a href="#一、搭建博客踩的坑" class="headerlink" title="一、搭建博客踩的坑"></a>一、搭建博客踩的坑</h3><h4 id="1-我的学习对象"><a href="#1-我的学习对象" class="headerlink" title="1.我的学习对象"></a>1.我的学习对象</h4><p>​    <a href="https://www.lixint.me" target="_blank" rel="noopener"><font color="blue">LixT</font></a>大佬的博客搭建教程在我所看过的所有教程中堪称是<font color="red">最  <font size="4">最</font>  <font size="5">最</font>0基础</font>的。我的个人博客基本是按照LixT的教程实现的。但是在过程中还是遇到了一些麻烦，还有一些思路上的不同，所以这篇博文就相当于是对LixT教程的一个小小的补充。</p>
-<h4 id="2-尚未写完。。。。。。。"><a href="#2-尚未写完。。。。。。。" class="headerlink" title="2.尚未写完。。。。。。。"></a>2.尚未写完。。。。。。。</h4><h3 id="二、博客维护踩的坑"><a href="#二、博客维护踩的坑" class="headerlink" title="二、博客维护踩的坑"></a>二、博客维护踩的坑</h3><h4 id="1-失效"><a href="#1-失效" class="headerlink" title="1.失效"></a>1.<code style="color:red"><！-- more --></！--></code>失效</h4><p>​    对于较长的博文，博文在主页展示时如果全部展示不仅不美观，而且十分的浪费空间。在Markdown的语法中，我们可以在博客中使用<code style="color:red"><！-- more --></！--></code>,之前的内容可以在主页显示，之后的内容进入博客后才能看到。但是经常遇到的问题确实博文主页的确不是显示全文，但是显示的内容却也不是按照我们的想法来进行分割的。对想要在主页展示部分图片的用户造成了极大的困扰。</p>
+<h3 id="一、搭建博客踩的坑"><a href="#一、搭建博客踩的坑" class="headerlink" title="一、搭建博客踩的坑"></a>一、搭建博客踩的坑</h3><h4 id="1-我的学习对象"><a href="#1-我的学习对象" class="headerlink" title="1.我的学习对象"></a>1.我的学习对象</h4><p>​    <a href="https://www.lixint.me" target="_blank" rel="noopener"><font color="blue">LixT</font></a>大佬的博客搭建教程在我所看过的所有教程中堪称是<font color="red">最  <font size="4">最</font>  <font size="5">最</font>0基础&lt;/font&gt;的。我的个人博客基本是按照LixT的教程实现的。但是在过程中还是遇到了一些麻烦，还有一些思路上的不同，所以这篇博文就相当于是对LixT教程的一个小小的补充。</font></p>
+<h4 id="2-尚未写完。。。。。。。"><a href="#2-尚未写完。。。。。。。" class="headerlink" title="2.尚未写完。。。。。。。"></a>2.尚未写完。。。。。。。</h4><h3 id="二、博客维护踩的坑"><a href="#二、博客维护踩的坑" class="headerlink" title="二、博客维护踩的坑"></a>二、博客维护踩的坑</h3><h4 id="1-lt-！—-more-—-gt-失效"><a href="#1-lt-！—-more-—-gt-失效" class="headerlink" title="1.&lt;！— more —&gt;失效"></a>1.<code style="color:red">&lt;！— more —&gt;</code>失效</h4><p>​    对于较长的博文，博文在主页展示时如果全部展示不仅不美观，而且十分的浪费空间。在Markdown的语法中，我们可以在博客中使用<code style="color:red">&lt;！— more —&gt;</code>,之前的内容可以在主页显示，之后的内容进入博客后才能看到。但是经常遇到的问题确实博文主页的确不是显示全文，但是显示的内容却也不是按照我们的想法来进行分割的。对想要在主页展示部分图片的用户造成了极大的困扰。</p>
 <p><img src="/2019/08/10/personal-blog/1.png" alt="1"></p>
-<p>​    在主题配置文件中找到上图内容，配置文件中<code style="color:blue">excerpt_description</code>默认设置为true，这导致主页始终只能显示md文件的front-matter（可理解为 序言）部分的 description内容。将<code style="color:blue">excerpt_description</code>设置为false后，<code style="color:red"><！-- more --></！--></code>就能有效果了。</p>
-<p>​    如果不想进入博文后直接从<code style="color:red"><！-- more --></！--></code>后的内容开始阅读，</p>
+<p>​    在主题配置文件中找到上图内容，配置文件中<code style="color:blue">excerpt_description</code>默认设置为true，这导致主页始终只能显示md文件的front-matter（可理解为 序言）部分的 description内容。将<code style="color:blue">excerpt_description</code>设置为false后，<code style="color:red">&lt;！— more —&gt;</code>就能有效果了。</p>
+<p>​    如果不想进入博文后直接从<code style="color:red">&lt;！— more —&gt;</code>后的内容开始阅读，</p>
 <p>可以将<code style="color:blue">scroll_to_more</code>设置为false，此项根据个人需要决定。</p>
 <p>注：以上内容中，由于显示的需求，将<code>&lt;!-- more --&gt;</code>中的<code>!</code>(英语字符)替换为了<code>!</code>（中文字符）。</p>
 <h4 id="2-网页中图片无法显示"><a href="#2-网页中图片无法显示" class="headerlink" title="2.网页中图片无法显示"></a>2.网页中图片无法显示</h4><p>​    这个问题是很多人都遇到过的问题，在本地 编辑，甚至在一些Markdown编辑器中图片都能正常显示，但是网页中却显示不出来。</p>
 <p>​    博客编辑时，图片的组织有两种方式，一种是直接存放在<code style="color:red">source\images</code>文件夹之内，但是并不太推荐此种方式，因为含有多篇博文时，所有博文的图片都放在图一个文件夹中，不利于图片的管理；第二种方式可以形象的理解为“一个萝卜一个坑”，每篇博文，都对应有一个同名文件夹，将本篇博文的图片放在该文件夹中即可。</p>
 <p>​    第二种方式的具体操作如下：</p>
-<h5 id="1-修改主题配置文件"><a href="#1-修改主题配置文件" class="headerlink" title="1.修改主题配置文件"></a>1.修改主题配置文件</h5><p>​        将主题配置文件中的<code style="color:red">post_asset_folder</code>设置为true，这样每次用命令<code style="color:red">hexo new post '名字'</code>code&gt;时，会直接在<code style="color:red">source_post</code>中生成一个md文件和一个放图片的同名文件夹。</p>
+<h5 id="1-修改主题配置文件"><a href="#1-修改主题配置文件" class="headerlink" title="1.修改主题配置文件"></a>1.修改主题配置文件</h5><p>​        将主题配置文件中的<code style="color:red">post_asset_folder</code>设置为true，这样每次用命令<code style="color:red">hexo new post ‘名字’</code>code&gt;时，会直接在<code style="color:red">source_post</code>中生成一个md文件和一个放图片的同名文件夹。</p>
 <h5 id="2-安装hexo-asset-image插件"><a href="#2-安装hexo-asset-image插件" class="headerlink" title="2.安装hexo-asset-image插件"></a>2.安装<code style="color:red">hexo-asset-image</code>插件</h5><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-<span class="built_in">image</span> --<span class="built_in">save</span></span><br></pre></td></tr></table></figure>
-
 <h5 id="3-使用-图片描述-文件夹名-图片名-引用图片"><a href="#3-使用-图片描述-文件夹名-图片名-引用图片" class="headerlink" title="3.使用![图片描述](文件夹名/图片名)引用图片"></a>3.使用<code>![图片描述](文件夹名/图片名)</code>引用图片</h5><p>​        此处需注意，引用路径时使用<code>/</code>而不是Windows下常用的<code>\</code>,因为知识HTML的URL，必须使用<code>/</code>，在有些编辑器中（比如我用的Typora），不论使用哪一种都可以显示图片，但是使用<code>\</code>时的HTML文件路径是有错的，最终导致网页中图片无法显示。</p>
 <p><font size="5" color="red">附：</font>关于<code>[% asset_img slug title %]</code></p>
 <p>​    我查看许多人关于这个描述，这是hexo的一个标签插件，可以解决<code>![alt](path)</code>引用的图片无法在主页显示的问题。但是经过我的测试，我发现<code>![alt](path)</code>引用的图片可以在主页和文章中完美显示。并且不知道是否因为版本问题，在md文件中使用<code>[% asset_img slug title %]</code>反而无法在网页中正常显示。使用<code>hexo g</code>之后查看本地<code>public\2019\08\10\personal-blog\index.html</code> (该博文的路径)，查看图片引用处代码，发现使用<code>[% asset_img slug title %]</code>生成的HTML源码的图片路径有误。</p>
@@ -500,7 +498,6 @@
 <p>注：以上内容中<code>[% asset_img slug title %]</code>的<code>[]</code>应该换为<code>{}</code>，在hexo生成的HTML文件中无法显示，故以此代替。</p>
 <h4 id="3-代码块的-复制-按钮与打赏-按钮在Github上变形"><a href="#3-代码块的-复制-按钮与打赏-按钮在Github上变形" class="headerlink" title="3.代码块的 复制 按钮与打赏 按钮在Github上变形"></a>3.代码块的 复制 按钮与打赏 按钮在Github上变形</h4><p>概要：</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
-
 <p>多刷几次就行</p>
 
       
@@ -773,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、搭建博客踩的坑"><span class="nav-number">1.</span> <span class="nav-text">一、搭建博客踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-我的学习对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.我的学习对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-尚未写完。。。。。。。"><span class="nav-number">1.2.</span> <span class="nav-text">2.尚未写完。。。。。。。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、博客维护踩的坑"><span class="nav-number">2.</span> <span class="nav-text">二、博客维护踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-失效"><span class="nav-number">2.1.</span> <span class="nav-text">1.失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-网页中图片无法显示"><span class="nav-number">2.2.</span> <span class="nav-text">2.网页中图片无法显示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-修改主题配置文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.修改主题配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装hexo-asset-image插件"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.安装hexo-asset-image插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-使用-图片描述-文件夹名-图片名-引用图片"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.使用![图片描述](文件夹名/图片名)引用图片</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-代码块的-复制-按钮与打赏-按钮在Github上变形"><span class="nav-number">2.3.</span> <span class="nav-text">3.代码块的 复制 按钮与打赏 按钮在Github上变形</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、搭建博客踩的坑"><span class="nav-number">1.</span> <span class="nav-text">一、搭建博客踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-我的学习对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.我的学习对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-尚未写完。。。。。。。"><span class="nav-number">1.2.</span> <span class="nav-text">2.尚未写完。。。。。。。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、博客维护踩的坑"><span class="nav-number">2.</span> <span class="nav-text">二、博客维护踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-lt-！—-more-—-gt-失效"><span class="nav-number">2.1.</span> <span class="nav-text">1.&lt;！— more —&gt;失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-网页中图片无法显示"><span class="nav-number">2.2.</span> <span class="nav-text">2.网页中图片无法显示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-修改主题配置文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.修改主题配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装hexo-asset-image插件"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.安装hexo-asset-image插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-使用-图片描述-文件夹名-图片名-引用图片"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.使用![图片描述](文件夹名/图片名)引用图片</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-代码块的-复制-按钮与打赏-按钮在Github上变形"><span class="nav-number">2.3.</span> <span class="nav-text">3.代码块的 复制 按钮与打赏 按钮在Github上变形</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -446,7 +446,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">881</span>
+              <span title="本文字数">872</span>
             </span>
           
 
@@ -481,9 +481,6 @@
       
         <p><img src="/2019/08/09/git/git-logo.jpg" alt="git-logo"></p>
 <a id="more"></a>
-
-
-
 <h3 id="1-在本地创建Git可管理的版本库"><a href="#1-在本地创建Git可管理的版本库" class="headerlink" title="1.在本地创建Git可管理的版本库"></a>1.在本地创建Git可管理的版本库</h3><p>在本地进入待上传项目的文件夹，右键单击，选择Git Bash here；</p>
 <p><img src="/2019/08/09/git/1.png" alt="1"></p>
 <p>输入 <code>git init</code> 创建版本库；</p>
@@ -492,22 +489,24 @@
 <p><img src="/2019/08/09/git/3.png" alt="3"></p>
 <h3 id="2-将项目提交到仓库"><a href="#2-将项目提交到仓库" class="headerlink" title="2.将项目提交到仓库"></a>2.将项目提交到仓库</h3><p>git工作流程如下图：</p>
 <p><img src="/2019/08/09/git/4.png" alt="4"></p>
-<p>本地的项目文件位于工作区，初始状态是未加入git仓库的。使用 <code>git add .</code>[^1] 或者 <code>git add [文件名或文件夹名]</code> [^2]将工作区文件加入暂存区；[^3]待确定该次版本修改完成后，使用 <code>git commit</code> [^4]可将暂存区文件提交到本地git仓库（版本库）。</p>
-<p>[^1]: 输入  <code>git add .</code> 将工作区所有文件及文件夹放入暂存区；<br>[^2]: 输入  <code>git add [文件名或文件夹名]</code> 将工作区部分文件及文件夹放入暂存区；<br>[^3]:输入 <code>git status</code>可查看处于暂存区的文件（夹）目录，默认为绿色显示；<br>[^4]: 常使用 <code>git commit -m &#39;版本描述&#39;</code>。 </p>
+<p>本地的项目文件位于工作区，初始状态是未加入git仓库的。使用 <code>git add .</code><sup><a href="#fn_1" id="reffn_1">1</a></sup> 或者 <code>git add [文件名或文件夹名]</code> <sup><a href="#fn_2" id="reffn_2">2</a></sup>将工作区文件加入暂存区；<sup><a href="#fn_3" id="reffn_3">3</a></sup>待确定该次版本修改完成后，使用 <code>git commit</code> <sup><a href="#fn_4" id="reffn_4">4</a></sup>可将暂存区文件提交到本地git仓库（版本库）。</p>
+<blockquote id="fn_1">
+<sup>1</sup>. 输入  <code>git add .</code> 将工作区所有文件及文件夹放入暂存区；<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. 输入  <code>git add [文件名或文件夹名]</code> 将工作区部分文件及文件夹放入暂存区；<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<p><sup><a href="#fn_3" id="reffn_3">3</a></sup>:输入 <code>git status</code>可查看处于暂存区的文件（夹）目录，默认为绿色显示；<br><sup><a href="#fn_4" id="reffn_4">4</a></sup>: 常使用 <code>git commit -m &#39;版本描述&#39;</code>。 </p>
 <h3 id="3-在Github上创建一个仓库，并获取该仓库的URL"><a href="#3-在Github上创建一个仓库，并获取该仓库的URL" class="headerlink" title="3.在Github上创建一个仓库，并获取该仓库的URL"></a>3.在Github上创建一个仓库，并获取该仓库的URL</h3><p>在Github上新建一个仓库(Repository)，获取仓库的URL,即下图红框所标注的内容。</p>
 <p><img src="/2019/08/09/git/5.png" alt="5"></p>
 <h3 id="4-将Github上的远程仓库与本地仓库关联"><a href="#4-将Github上的远程仓库与本地仓库关联" class="headerlink" title="4.将Github上的远程仓库与本地仓库关联"></a>4.将Github上的远程仓库与本地仓库关联</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">add</span> origin http<span class="variable">s:</span>//github.<span class="keyword">com</span>/austinmarsray/test.git</span><br></pre></td></tr></table></figure>
-
 <p>origin之后填写对应仓库的URL。</p>
 <h3 id="5-将本地仓库内容推送到Github远程仓库"><a href="#5-将本地仓库内容推送到Github远程仓库" class="headerlink" title="5.将本地仓库内容推送到Github远程仓库"></a>5.将本地仓库内容推送到Github远程仓库</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> -u <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
-
 <p>第一次上传时远程仓库为空，需使用<code>-u</code>,之后推送可直接使用</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
-
 <p>当创建仓库时选择了创建readme.md时，此步骤会报错。</p>
 <p><img src="/2019/08/09/git/6.png" alt="6"></p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase origin <span class="literal">master</span></span><br><span class="line">git push -u origin <span class="literal">master</span></span><br></pre></td></tr></table></figure>
-
 <p>按以上步骤即可正常推送内容。</p>
 <h3 id="6-Github仓库中显示项目内容"><a href="#6-Github仓库中显示项目内容" class="headerlink" title="6.Github仓库中显示项目内容"></a>6.Github仓库中显示项目内容</h3><p><img src="/2019/08/09/git/7.png" alt="7"></p>
 
