@@ -115,10 +115,11 @@
 <meta property="og:description" content="从今年7月决定搭建个人博客到今天博客基本成形经历了一个月的时间，从对博客搭建一无所知到小有心得，中间犯过许多错，踩过许多坑；有的坑是借鉴别人的经验度过的，有的坑是自己不断尝试找到解决方法的。所以想记录下我在搭建博客以及之后的使用过程中遇到的坑，希望对读者有所裨益。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/blog-logo.jpg">
+<meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/2.jpg">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/1.png">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/cmp1.png">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/cmp2.png">
-<meta property="og:updated_time" content="2019-08-16T12:24:41.570Z">
+<meta property="og:updated_time" content="2019-08-27T15:25:32.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客那些事儿">
 <meta name="twitter:description" content="从今年7月决定搭建个人博客到今天博客基本成形经历了一个月的时间，从对博客搭建一无所知到小有心得，中间犯过许多错，踩过许多坑；有的坑是借鉴别人的经验度过的，有的坑是自己不断尝试找到解决方法的。所以想记录下我在搭建博客以及之后的使用过程中遇到的坑，希望对读者有所裨益。">
@@ -397,7 +398,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-16 20:24:41" itemprop="dateModified" datetime="2019-08-16T20:24:41+08:00">2019-08-16</time>
+                <time title="修改时间：2019-08-27 23:25:32" itemprop="dateModified" datetime="2019-08-27T23:25:32+08:00">2019-08-27</time>
               </span>
             
           
@@ -438,7 +439,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.9k</span>
+              <span title="本文字数">2.2k</span>
             </span>
           
 
@@ -477,7 +478,13 @@
 <p>​                                                                        <strong><font color="red" size="5">此博客长期更新</font></strong></p>
 <hr>
 <h3 id="一、搭建博客踩的坑"><a href="#一、搭建博客踩的坑" class="headerlink" title="一、搭建博客踩的坑"></a>一、搭建博客踩的坑</h3><h4 id="1-我的学习对象"><a href="#1-我的学习对象" class="headerlink" title="1.我的学习对象"></a>1.我的学习对象</h4><p>​    <a href="https://www.lixint.me" target="_blank" rel="noopener"><font color="blue">LixT</font></a>大佬的博客搭建教程在我所看过的所有教程中堪称是<font color="red">最  <font size="4">最</font>  <font size="5">最</font>0基础&lt;/font&gt;的。我的个人博客基本是按照LixT的教程实现的。但是在过程中还是遇到了一些麻烦，还有一些思路上的不同，所以这篇博文就相当于是对LixT教程的一个小小的补充。</font></p>
-<h4 id="2-尚未写完。。。。。。。"><a href="#2-尚未写完。。。。。。。" class="headerlink" title="2.尚未写完。。。。。。。"></a>2.尚未写完。。。。。。。</h4><h3 id="二、博客维护踩的坑"><a href="#二、博客维护踩的坑" class="headerlink" title="二、博客维护踩的坑"></a>二、博客维护踩的坑</h3><h4 id="1-lt-！—-more-—-gt-失效"><a href="#1-lt-！—-more-—-gt-失效" class="headerlink" title="1.&lt;！— more —&gt;失效"></a>1.<code style="color:red">&lt;！— more —&gt;</code>失效</h4><p>​    对于较长的博文，博文在主页展示时如果全部展示不仅不美观，而且十分的浪费空间。在Markdown的语法中，我们可以在博客中使用<code style="color:red">&lt;！— more —&gt;</code>,之前的内容可以在主页显示，之后的内容进入博客后才能看到。但是经常遇到的问题确实博文主页的确不是显示全文，但是显示的内容却也不是按照我们的想法来进行分割的。对想要在主页展示部分图片的用户造成了极大的困扰。</p>
+<h4 id="2-本地测试无法访问"><a href="#2-本地测试无法访问" class="headerlink" title="2.本地测试无法访问"></a>2.本地测试无法访问</h4><p><img src="/2019/08/10/personal-blog/2.jpg" alt="2"></p>
+<p>​    在搭建静态博客的过程中，为了便于查看博客内容或者页面的效果，我们常常进行本地测试。<code style="color:red">hexo s</code>后在本地浏览器输入localhost即可查看博客内容，但是也可能会遇到上图中的情况。</p>
+<p>​    输入<code style="color:red">hexo s</code>默认去使用本地4000端口，但是本地4000端口被其他服务占用，导致不能访问。此时我们可以更换一个本地部署的端口：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -<span class="selector-tag">p</span> <span class="number">5000</span></span><br></pre></td></tr></table></figure>
+<p>​    这个命令将本地部署到5000端口，浏览器URL则填入localhost:5000。</p>
+<p>​    当然，更换为4001端口之类的也是可以的，浏览器输入的URL要与设定的端口一致。</p>
+<h3 id="二、博客维护踩的坑"><a href="#二、博客维护踩的坑" class="headerlink" title="二、博客维护踩的坑"></a>二、博客维护踩的坑</h3><h4 id="1-lt-！—-more-—-gt-失效"><a href="#1-lt-！—-more-—-gt-失效" class="headerlink" title="1.&lt;！— more —&gt;失效"></a>1.<code style="color:red">&lt;！— more —&gt;</code>失效</h4><p>​    对于较长的博文，博文在主页展示时如果全部展示不仅不美观，而且十分的浪费空间。在Markdown的语法中，我们可以在博客中使用<code style="color:red">&lt;！— more —&gt;</code>,之前的内容可以在主页显示，之后的内容进入博客后才能看到。但是经常遇到的问题确实博文主页的确不是显示全文，但是显示的内容却也不是按照我们的想法来进行分割的。对想要在主页展示部分图片的用户造成了极大的困扰。</p>
 <p><img src="/2019/08/10/personal-blog/1.png" alt="1"></p>
 <p>​    在主题配置文件中找到上图内容，配置文件中<code style="color:blue">excerpt_description</code>默认设置为true，这导致主页始终只能显示md文件的front-matter（可理解为 序言）部分的 description内容。将<code style="color:blue">excerpt_description</code>设置为false后，<code style="color:red">&lt;！— more —&gt;</code>就能有效果了。</p>
 <p>​    如果不想进入博文后直接从<code style="color:red">&lt;！— more —&gt;</code>后的内容开始阅读，</p>
@@ -770,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、搭建博客踩的坑"><span class="nav-number">1.</span> <span class="nav-text">一、搭建博客踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-我的学习对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.我的学习对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-尚未写完。。。。。。。"><span class="nav-number">1.2.</span> <span class="nav-text">2.尚未写完。。。。。。。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、博客维护踩的坑"><span class="nav-number">2.</span> <span class="nav-text">二、博客维护踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-lt-！—-more-—-gt-失效"><span class="nav-number">2.1.</span> <span class="nav-text">1.&lt;！— more —&gt;失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-网页中图片无法显示"><span class="nav-number">2.2.</span> <span class="nav-text">2.网页中图片无法显示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-修改主题配置文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.修改主题配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装hexo-asset-image插件"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.安装hexo-asset-image插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-使用-图片描述-文件夹名-图片名-引用图片"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.使用![图片描述](文件夹名/图片名)引用图片</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-代码块的-复制-按钮与打赏-按钮在Github上变形"><span class="nav-number">2.3.</span> <span class="nav-text">3.代码块的 复制 按钮与打赏 按钮在Github上变形</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、搭建博客踩的坑"><span class="nav-number">1.</span> <span class="nav-text">一、搭建博客踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-我的学习对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.我的学习对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-本地测试无法访问"><span class="nav-number">1.2.</span> <span class="nav-text">2.本地测试无法访问</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、博客维护踩的坑"><span class="nav-number">2.</span> <span class="nav-text">二、博客维护踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-lt-！—-more-—-gt-失效"><span class="nav-number">2.1.</span> <span class="nav-text">1.&lt;！— more —&gt;失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-网页中图片无法显示"><span class="nav-number">2.2.</span> <span class="nav-text">2.网页中图片无法显示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-修改主题配置文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.修改主题配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装hexo-asset-image插件"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.安装hexo-asset-image插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-使用-图片描述-文件夹名-图片名-引用图片"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.使用![图片描述](文件夹名/图片名)引用图片</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-代码块的-复制-按钮与打赏-按钮在Github上变形"><span class="nav-number">2.3.</span> <span class="nav-text">3.代码块的 复制 按钮与打赏 按钮在Github上变形</span></a></li></ol></li></ol></div>
             
 
           </div>
