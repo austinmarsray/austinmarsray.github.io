@@ -115,7 +115,8 @@
 <meta property="og:description" content="算法的时间复杂度">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/18/algorithm/logo.png">
-<meta property="og:updated_time" content="2019-08-19T14:43:12.986Z">
+<meta property="og:image" content="https://austinmarsray.github.io/2019/08/18/algorithm/logo.png">
+<meta property="og:updated_time" content="2019-08-28T14:59:40.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法的效率">
 <meta name="twitter:description" content="算法的时间复杂度">
@@ -394,7 +395,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-19 22:43:12" itemprop="dateModified" datetime="2019-08-19T22:43:12+08:00">2019-08-19</time>
+                <time title="修改时间：2019-08-28 22:59:40" itemprop="dateModified" datetime="2019-08-28T22:59:40+08:00">2019-08-28</time>
               </span>
             
           
@@ -420,7 +421,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.5k</span>
+              <span title="本文字数">3.2k</span>
             </span>
           
 
@@ -432,7 +433,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -456,33 +457,56 @@
         <p><img src="/2019/08/18/algorithm/logo.png" alt="logo"></p>
 <a id="more"></a>
 <h3 id="算法效率的度量"><a href="#算法效率的度量" class="headerlink" title="算法效率的度量"></a>算法效率的度量</h3><h4 id="事后统计方法"><a href="#事后统计方法" class="headerlink" title="事后统计方法"></a>事后统计方法</h4><p>​        准备好测试程序和数据，利用计时器计数程序运行时间<br>​        缺陷：</p>
-<p>1.费时费力  实现做好测试程序，花费大量时间，如果算法糟糕，等于推倒重来；</p>
-<p>2.不同测试环境得出的结果差距很大   在一台高性能的计算机上用一个效率比较低的算法，我们得到的结果肯恶搞差强人意，但是在性能较差的计算机上，那效果就极差；</p>
+<p>1.费时费力  实现做好测试程序，花费大量时间，如果算法不符合要求，之前投入的大量的时间和精力都将浪费；</p>
+<p>2.不同测试环境得出的结果差距很大   在一台高性能的计算机上用一个效率比较低的算法，我们得到的结果可能差强人意，但是在性能较差的计算机上，那效果就极差；</p>
 <p>因此，我们需要一种事先在理论上计算算法效率的方法。</p>
 <h4 id="事前分析估算方法"><a href="#事前分析估算方法" class="headerlink" title="事前分析估算方法"></a>事前分析估算方法</h4><p>​    进行理论分析时，主要考虑算法的时间复杂度和算法的空间复杂度。但是现代计算机的内存空间一般不存在不够用的情况，因此我们主要是需要考虑<font color="red">算法的时间复杂度</font>。</p>
 <hr>
 <h5 id="算法效率的影响因素"><a href="#算法效率的影响因素" class="headerlink" title="算法效率的影响因素"></a>算法效率的影响因素</h5><p>1.算法采用的策略</p>
-<p>​    这是影响效率最根本的因素。</p>
+<p>​    这是影响效率最根本的因素。采取的策略不同，算法也就不同。以下面两个算法为例，大家可以感受以下算法对于时间效率的影响。</p>
+<p>​    题目：要求依次输出1~100的阶乘(可以用double存储近似结果)</p>
+<font color="red">算法一:</font>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">double</span> ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            ans= ans*j;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="red">算法二：</font>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">double</span> ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans= ans*i;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    以上两种算法的优劣十分的明显，在PC上编译运行两种算法，我们甚至不用计时就可以明显感觉到第二种算法所花费的时间要短。当n更大时<sup><a href="#fn_1" id="reffn_1">1</a></sup>，两者的运行时间差距将会更大。</p>
+<blockquote id="fn_1">
+<sup>1</sup>. 当n较大时，此算法将不再适用。因为数值过大导致double数值溢出，如需验证，则可以使用数组来存储结果。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
 <p>2.问题的数据规模</p>
-<p>​    数据规模决定了算法的执行次数。相同的算法，在不同的数据规模下的效率也是不同的。例如一个高级的排序算法在数据规模很大时，效率甩开插入排序、冒泡排序等几条街不止；但是当数据规模较小时，在效率上反而是略不如这些算法。</p>
+<p>​    前文两段代码中的n就是各自算法的数据规模，决定算法中主要操作的执行次数。</p>
+<p>​    相同的算法，在不同的数据规模下的效率也是不同的。例如一个高级的排序算法在数据规模很大时，效率甩开插入排序、冒泡排序等几条街不止；但是当数据规模较小时，在效率上反而是略不如这些算法。</p>
 <p>3.编译产生的代码质量</p>
 <p>​    编译是将我们用高级语言写的代码转化为机器能识别的二进制代码。代码质量的影响因素很多，其中编译过程也会一定的影响代码质量，这主要是因为编译器采取了一些优化机制。当然编译过程不是影响代码质量的关键因素，代码质量的高低还是取决于程序员的。</p>
 <p>4.机器执行指令的速度</p>
 <p>​    这个就主要是由机器的性能决定，对结果的影响也很大。但是对于开发者而言，需要的是尽可能去优化算法，而不是一味的让用户去更换更先进的计算机。</p>
 <hr>
-<h5 id="算法的时间复杂度"><a href="#算法的时间复杂度" class="headerlink" title="算法的时间复杂度"></a>算法的时间复杂度</h5><p>以一段具体的代码为例：</p>
+<h5 id="算法的时间复杂度"><a href="#算法的时间复杂度" class="headerlink" title="算法的时间复杂度"></a>算法的时间复杂度</h5><p>​    算法的时间复杂度是指当问题的数据规模以某种单位从1增加到n时，解决这个问题所需的时间也以某种单位有1增加到t(n)。</p>
+<p>以一段具体的代码为例：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i, sum = <span class="number">0</span>, n = <span class="number">100</span>;		<span class="comment">//执行了1次</span></span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;=n; i++)			<span class="comment">//执行了n+1次</span></span><br><span class="line">&#123;</span><br><span class="line">    sum+=i;				<span class="comment">//执行了n次</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上代码执行了$2n+2$次，时间复杂度为$O(n)$。</p>
-<p>Big O表达式：</p>
-<font color="red">只要高项式，不要低项式，也不要高项式的系数</font>
-
-<p>常见的量级：</p>
-<script type="math/tex; mode=display">O(n!) > O(2^n) > O(n^2) >O(nlogn) >O(n) >O(logn) > O(1)</script><hr>
-<p>为什么要忽略系数和低项式</p>
-<p>举例：对一个无序数组排序，方法从0到N-1选最小的数，放到0处，再从1到N-1选最小值，放到1处，依次类推</p>
-<script type="math/tex; mode=display">(N + N-1 + N-2 + N-3 + ··· +2)= \cfrac{1}{2} * N^2 + \cfrac{1}{2}*N - 1</script><p>所以此算法的时间复杂度 $O(N^2)$<br>解释：当输入规模足够大时，低项式和系数对整体影响不大；<br>      当指标相同时，先比较系数，在比较低项式</p>
-<p>时间复杂度是衡量一个量级上的差距，这个量级上的差距表现在当n突破到一个点的时候，<br>时间复杂度低的算法就一定要比时间复杂度高的算法快，而且n越大，这个优势越明显。<br>而我们研究算法就是要处理大规模的数据，如果数据比较小的话，时间总是够用的。</p>
-<p>复杂度高的算法可能它会有前面常数小的优势，所以在我们数据规模比较小的时候，它是有意义的，<br>但是这是细节上的优化，但整体上我们还是要追求复杂度低的算法</p>
+<p>​    以上代码执行了的时间复杂度为$t(n)=2*n+2$。</p>
+<p>​    分析以上代码，我们可以发现<code>int i, sum = 0, n = 100;</code>的执行次数并不随输入规模的改变而改变；<code>for (i = 1; i &lt;=n; i++)</code>与<code>sum+=i;</code>的执行次数与输入规模有关。这种方式假设每条命令执行所需时间相同，只需计算出指令的执行次数就可以估计出程序的时间效率。</p>
+<h5 id="算法的渐进时间复杂度"><a href="#算法的渐进时间复杂度" class="headerlink" title="算法的渐进时间复杂度"></a>算法的渐进时间复杂度</h5><p>​    算法的渐进时间复杂度g(n)是指<font color="red">不包括t(n)的低阶项和首项系数</font>的函数，亦即考察输入值大小趋近无穷时的情况。<font color="green">一般情况下，我们衡量时间效率所说的时间复杂度其实是指渐进时间复杂度。</font>下文提到的时间复杂度若无特别说明也是指渐进时间复杂度。</p>
+<p>​    比如：一个算法的时间复杂度$t(n)=100n^2+100n+log_2n+10000$，其渐进时间复杂度为$O(n^2)$。</p>
+<p>​    时间复杂度是衡量一个量级上的差距，这个量级上的差距表现在当n突破到一个点的时候，时间复杂度低的算法就一定要比时间复杂度高的算法快，而且n越大，这个优势越明显。而我们研究算法就是要处理大规模的数据，因为数据比较小的话，时间总是够用的。</p>
+<p>​    复杂度高的算法可能它会有前面常数小的优势，所以在我们数据规模比较小的时候，它是有意义的，<br>但是这是细节上的优化，但整体上我们还是要追求复杂度低的算法</p>
+<h5 id="时间复杂度的表示"><a href="#时间复杂度的表示" class="headerlink" title="时间复杂度的表示"></a>时间复杂度的表示</h5><p>​    时间复杂度常用大O符号表示，代表其渐进上界。还可以使用Θ表示紧确界，Ω代表渐进下界。</p>
+<hr>
+<p>​    O(大O符号）：上界</p>
+<p>​    定义：若存在两个正的常数 c 和 $n_0 $, 对于任意 $n≥n_0$ , 都有 $T( n)≤cf( n)$ ,则称$T( n) = O( f( n) )$(或称算法在 $O( f( n))$中)。<br>​    大 O 符号用来描述增长率的上限,表示 T( n)的增长最多像 f( n)增长的那样快,也就是说, 当输入规模为 n时, 算法    消耗时间的最大值,这个上限的阶越低, 结果就越有价值。</p>
+<p>​    Ω（大Ω符号）：下界<br>​    定义：若存在两个正的常数 c和 $n_0$ ,对于任意$n≥ n_0$ , 都有 $T( n)≥cg( n)$ ,则称$T( n) = Ω( g( n) )$(或称算法在 $Ω( g( n) )$中)。<br>​    大 Ω符号用来描述增长率的下限, 也就是说, 当输入规模为 n 时,算法消耗时间的最小值。与大 O 符号对称, 这个    下限的阶越高,结果就越有价值。</p>
+<p>​    Θ(theta) ：紧确界<br>​    定义：若存在 3 个正的常数 $c_1 ,c_2 和 n_0 $,对于任意 $n≥ n_0$ , 都有$ c_1f(n)≥ T(n)≥ c_2f(n)$ , 则称$ T( n) = Θ( f(n))$。<br>​    Θ符号意味着 T( n)与 f( n)同阶, 用来表示算法的精确阶。</p>
+<hr>
+<h5 id="常见的时间复杂度模型"><a href="#常见的时间复杂度模型" class="headerlink" title="常见的时间复杂度模型"></a>常见的时间复杂度模型</h5><script type="math/tex; mode=display">O(n!) > O(2^n) > O(n^2) >O(nlogn) >O(n) >O(logn) > O(1)</script><p><img src="/2019/08/18/algorithm/logo.png" alt="pic"></p>
+<p>1.常量阶O(1)</p>
+<p>2.对数阶O(logn)</p>
+<p>3.线性阶O(n)</p>
+<p>4.线性对数阶O(nlogn)</p>
+<p>5.平方阶O($n^2$)</p>
+<p>6.立方阶O($n^3$)</p>
+<p>7.指数阶O($2^n$)和阶乘阶O($n!$)</p>
 <hr>
 <p>不能忽视的情况</p>
 <p>需要特别注意，取量级大的一部分的前提一定是我们这个算法它所处理的这两部分所对应的规模n是一样的</p>
@@ -754,7 +778,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法效率的度量"><span class="nav-number">1.</span> <span class="nav-text">算法效率的度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事后统计方法"><span class="nav-number">1.1.</span> <span class="nav-text">事后统计方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事前分析估算方法"><span class="nav-number">1.2.</span> <span class="nav-text">事前分析估算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#算法效率的影响因素"><span class="nav-number">1.2.1.</span> <span class="nav-text">算法效率的影响因素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#算法的时间复杂度"><span class="nav-number">1.2.2.</span> <span class="nav-text">算法的时间复杂度</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法效率的度量"><span class="nav-number">1.</span> <span class="nav-text">算法效率的度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事后统计方法"><span class="nav-number">1.1.</span> <span class="nav-text">事后统计方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事前分析估算方法"><span class="nav-number">1.2.</span> <span class="nav-text">事前分析估算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#算法效率的影响因素"><span class="nav-number">1.2.1.</span> <span class="nav-text">算法效率的影响因素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#算法的时间复杂度"><span class="nav-number">1.2.2.</span> <span class="nav-text">算法的时间复杂度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#算法的渐进时间复杂度"><span class="nav-number">1.2.3.</span> <span class="nav-text">算法的渐进时间复杂度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时间复杂度的表示"><span class="nav-number">1.2.4.</span> <span class="nav-text">时间复杂度的表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的时间复杂度模型"><span class="nav-number">1.2.5.</span> <span class="nav-text">常见的时间复杂度模型</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -787,7 +811,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">4k</span>
+    <span title="站点总字数">7k</span>
   
 
   
@@ -796,7 +820,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4 分钟</span>
+    <span title="站点阅读时长">6 分钟</span>
   
 </div>
 
