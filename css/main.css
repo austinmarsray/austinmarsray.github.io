@@ -1815,7 +1815,8 @@ pre .javascript .function {
 .site-author-name {
   margin: 5px 0 0;
   text-align: center;
-  color: #f5f5f5;
+/*color: $site-author-name-color;*/
+  color: #000;
   font-weight: normal;
 }
 .site-description {
@@ -1845,7 +1846,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffab9c;
+  background: #f71f78;
 }
 .feed-link,
 .chat {
@@ -1987,7 +1988,8 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: all;
-  color: #999;
+/*color: $toc-link-color;*/
+  color: #000;
   border-bottom-color: #555;
 }
 .post-toc ol a:hover {
@@ -2017,7 +2019,8 @@ pre .javascript .function {
   border-bottom-color: #87daff;
 }
 .post-toc .nav .active-current > a {
-  color: #87daff;
+/*color: $toc-link-active-current-color;*/
+  color: #3f3;
 }
 .post-toc .nav .active-current > a:hover {
   color: #87daff;
