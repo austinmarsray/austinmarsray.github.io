@@ -1730,11 +1730,13 @@ pre .javascript .function {
 .sidebar a,
 .sidebar span.exturl {
   color: #999;
+  border-bottom: none;
   border-bottom-color: #555;
 }
 .sidebar a:hover,
 .sidebar span.exturl:hover {
   color: #eee;
+  border-bottom: none;
   border-bottom-color: #eee;
 }
 @media (max-width: 991px) {
@@ -1765,6 +1767,9 @@ pre .javascript .function {
 }
 .cc-license .cc-opacity:hover {
   opacity: 0.9;
+}
+.cc-license .links-of-author-item a {
+  border-bottom: none;
 }
 .cc-license img {
   display: inline-block;
@@ -1834,8 +1839,11 @@ pre .javascript .function {
   vertical-align: middle;
   margin-right: 10px;
   margin-bottom: 10px;
+/*下一行为添加内容，改变社交栏颜色*/
+  color: #000;
   border-bottom-color: #555;
   font-size: 13px;
+/*社交栏前的小圆点，颜色随机*/
 }
 .links-of-author a:before,
 .links-of-author span.exturl:before {
@@ -1846,7 +1854,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3ee524;
+  background: #62ff62;
 }
 .feed-link,
 .chat {
@@ -1879,6 +1887,8 @@ pre .javascript .function {
   font-size: 13px;
 }
 .links-of-blogroll-title {
+/*友链标题的颜色，自添*/
+  color: #000;
   margin-top: 0;
   font-size: 14px;
   font-weight: 600;
@@ -1893,6 +1903,8 @@ pre .javascript .function {
 }
 .links-of-blogroll-item a,
 .links-of-blogroll-item span.exturl {
+/*友链的颜色，自添*/
+  color: #000;
   max-width: 280px;
   box-sizing: border-box;
   display: inline-block;
@@ -1909,10 +1921,14 @@ pre .javascript .function {
   cursor: pointer;
   border-bottom: 1px solid transparent;
   font-size: 14px;
-  color: #555;
+/*color: $sidebar-nav-color;*/
+/*导航栏未选中时颜色*/
+  color: #000;
+/*&:hover { color: $sidebar-nav-hover-color; }*/
+/*导航栏未选中时鼠标徘徊颜色*/
 }
 .sidebar-nav li:hover {
-  color: #f5f5f5;
+  color: #000;
 }
 .page-post-detail .sidebar-nav-toc {
   padding: 0 5px;
@@ -1921,11 +1937,17 @@ pre .javascript .function {
   margin-left: 10px;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #87daff;
-  border-bottom-color: #87daff;
+/*color: $sidebar-highlight;*/
+/*导航栏选中时颜色*/
+  color: #008080;
+/*border-bottom-color: $sidebar-highlight;*/
+/*导航栏选中时下划线颜色*/
+  border-bottom-color: #008080;
+/*&:hover { color: $sidebar-highlight; }*/
+/*导航栏选中时鼠标徘徊颜色*/
 }
 .sidebar-nav .sidebar-nav-active:hover {
-  color: #87daff;
+  color: #008080;
 }
 .sidebar-panel {
   display: none;
@@ -1955,13 +1977,17 @@ pre .javascript .function {
 .site-state-item-count {
   display: block;
   text-align: center;
-  color: inherit;
+/*color: $site-state-item-count-color;*/
+/*博客计数颜色*/
+  color: #000;
   font-weight: 600;
   font-size: 18px;
 }
 .site-state-item-name {
   font-size: 13px;
-  color: inherit;
+/*color: $site-state-item-name-color;*/
+/*博客计数项目颜色*/
+  color: #000;
 }
 .post-toc-empty {
   font-size: 14px;
@@ -1989,12 +2015,14 @@ pre .javascript .function {
   transition-delay: 0s;
   transition-property: all;
 /*color: $toc-link-color;*/
-/*这里是目录的原始色*/
+/*目录未选中时颜色*/
   color: #000;
   border-bottom-color: #555;
 }
 .post-toc ol a:hover {
-  color: #ccc;
+/*color: $toc-link-hover-color;*/
+/*目录未选中时鼠标徘徊颜色*/
+  color: #000;
   border-bottom-color: #ccc;
 }
 .post-toc .nav-item {
@@ -2017,16 +2045,19 @@ pre .javascript .function {
 }
 .post-toc .nav .active > a {
 /*color: $toc-link-active-color;*/
+/*目录选中时颜色*/
   color: #008080;
 /*border-bottom-color: $toc-link-active-border-color;*/
   border-bottom-color: #008080;
 }
 .post-toc .nav .active-current > a {
 /*color: $toc-link-active-current-color;*/
+/*目录选中时颜色*/
   color: #008080;
 }
 .post-toc .nav .active-current > a:hover {
 /*color: $toc-link-active-current-border-color;*/
+/*目录选中时鼠标徘徊颜色*/
   color: #008080;
 }
 .sidebar-active + #sidebar-dimmer {
