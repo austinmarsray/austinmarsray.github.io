@@ -496,8 +496,8 @@ pre,
 .highlight {
   margin: 20px 0;
   font-size: 14px;
-  color: #eaeaea;
-  background: #000;
+  color: #4d4d4c;
+  background: #f7f7f7;
   line-height: 1.6;
 }
 pre,
@@ -519,7 +519,7 @@ pre {
 }
 pre code {
   padding: 0;
-  color: #eaeaea;
+  color: #4d4d4c;
   background: none;
   text-shadow: none;
 }
@@ -542,7 +542,7 @@ pre code {
 }
 .highlight figcaption {
   font-size: 1em;
-  color: #eaeaea;
+  color: #4d4d4c;
   line-height: 1em;
   margin: 0em;
   padding: 0.5em;
@@ -559,22 +559,22 @@ pre code {
 }
 .highlight figcaption a {
   float: right;
-  color: #eaeaea;
+  color: #4d4d4c;
 }
 .highlight figcaption a:hover {
-  border-bottom-color: #eaeaea;
+  border-bottom-color: #4d4d4c;
 }
 .highlight .gutter pre {
   padding-left: 10px;
   padding-right: 10px;
-  color: #666;
+  color: #869194;
   text-align: right;
-  background-color: #292929;
+  background-color: #eff2f3;
 }
 .highlight .code pre {
   width: 100%;
   padding-left: 10px;
-  background-color: #000;
+  background-color: #f7f7f7;
 }
 .highlight .line {
   height: 20px;
@@ -592,16 +592,16 @@ pre code {
   border: none;
 }
 pre .deletion {
-  background: #800000;
+  background: #fdd;
 }
 pre .addition {
-  background: #008000;
+  background: #dfd;
 }
 pre .meta {
-  color: #c397d8;
+  color: #8959a8;
 }
 pre .comment {
-  color: #969896;
+  color: #8e908c;
 }
 pre .variable,
 pre .attribute,
@@ -616,7 +616,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #d54e53;
+  color: #c82829;
 }
 pre .number,
 pre .preprocessor,
@@ -626,7 +626,7 @@ pre .literal,
 pre .params,
 pre .constant,
 pre .command {
-  color: #e78c45;
+  color: #f5871f;
 }
 pre .ruby .class .title,
 pre .css .rules .attribute,
@@ -639,11 +639,11 @@ pre .ruby .symbol,
 pre .xml .cdata,
 pre .special,
 pre .formula {
-  color: #b9ca4a;
+  color: #718c00;
 }
 pre .title,
 pre .css .hexcolor {
-  color: #70c0b1;
+  color: #3e999f;
 }
 pre .function,
 pre .python .decorator,
@@ -653,11 +653,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #7aa6da;
+  color: #4271ae;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #c397d8;
+  color: #8959a8;
 }
 .posts-expand .post-body img.full-image {
   border: none;
@@ -1846,7 +1846,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f71f78;
+  background: #04ffff;
 }
 .feed-link,
 .chat {
@@ -1989,6 +1989,7 @@ pre .javascript .function {
   transition-delay: 0s;
   transition-property: all;
 /*color: $toc-link-color;*/
+/*这里是目录的原始色*/
   color: #000;
   border-bottom-color: #555;
 }
@@ -2015,15 +2016,18 @@ pre .javascript .function {
   display: block;
 }
 .post-toc .nav .active > a {
-  color: #87daff;
-  border-bottom-color: #87daff;
+/*color: $toc-link-active-color;*/
+  color: #008080;
+/*border-bottom-color: $toc-link-active-border-color;*/
+  border-bottom-color: #008080;
 }
 .post-toc .nav .active-current > a {
 /*color: $toc-link-active-current-color;*/
-  color: #3f3;
+  color: #008080;
 }
 .post-toc .nav .active-current > a:hover {
-  color: #87daff;
+/*color: $toc-link-active-current-border-color;*/
+  color: #008080;
 }
 .sidebar-active + #sidebar-dimmer {
   transform: translateX(-100%);
@@ -2851,7 +2855,7 @@ hr {
   background: #f1f1f1;
 }
 .sidebar {
-  background: url("/images/sidebar.jpg");
+  background: #c9d9e0;
 }
 body {
   background: url("/images/background8.jpg");
