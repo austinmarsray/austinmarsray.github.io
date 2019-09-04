@@ -516,7 +516,7 @@
 <h4 id="2-本地测试无法访问"><a href="#2-本地测试无法访问" class="headerlink" title="2.本地测试无法访问"></a>2.本地测试无法访问</h4><p><img src="/2019/08/10/personal-blog/2.jpg" alt="2"></p>
 <p>​    在搭建静态博客的过程中，为了便于查看博客内容或者页面的效果，我们常常进行本地测试。<code style="color:red">hexo s</code>后在本地浏览器输入localhost即可查看博客内容，但是也可能会遇到上图中的情况。</p>
 <p>​    输入<code style="color:red">hexo s</code>默认去使用本地4000端口，但是本地4000端口被其他服务占用，导致不能访问。此时我们可以更换一个本地部署的端口：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -<span class="selector-tag">p</span> <span class="number">5000</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
 <p>​    这个命令将本地部署到5000端口，浏览器URL则填入localhost:5000。</p>
 <p>​    当然，更换为4001端口之类的也是可以的，浏览器输入的URL要与设定的端口一致。</p>
 <h3 id="二、博客维护踩的坑"><a href="#二、博客维护踩的坑" class="headerlink" title="二、博客维护踩的坑"></a>二、博客维护踩的坑</h3><h4 id="1-lt-more-gt-失效"><a href="#1-lt-more-gt-失效" class="headerlink" title="1.&lt;! -- more --&gt;失效"></a>1.<code>&lt;! -- more --&gt;</code>失效</h4><p>​    对于较长的博文，博文在主页展示时如果全部展示不仅不美观，而且十分的浪费空间。在Markdown的语法中，我们可以在博客中使用<code>&lt;! -- more --&gt;</code>,之前的内容可以在主页显示，之后的内容进入博客后才能看到。但是经常遇到的问题确实博文主页的确不是显示全文，但是显示的内容却也不是按照我们的想法来进行分割的。对想要在主页展示部分图片的用户造成了极大的困扰。</p>
@@ -528,7 +528,7 @@
 <p>​    博客编辑时，图片的组织有两种方式，一种是直接存放在<code style="color:red">source\images</code>文件夹之内，但是并不太推荐此种方式，因为含有多篇博文时，所有博文的图片都放在图一个文件夹中，不利于图片的管理；第二种方式可以形象的理解为“一个萝卜一个坑”，每篇博文，都对应有一个同名文件夹，将本篇博文的图片放在该文件夹中即可。</p>
 <p>​    第二种方式的具体操作如下：</p>
 <h5 id="1-修改主题配置文件"><a href="#1-修改主题配置文件" class="headerlink" title="1.修改主题配置文件"></a>1.修改主题配置文件</h5><p>​        将主题配置文件中的<code style="color:red">post_asset_folder</code>设置为true，这样每次用命令<code style="color:red">hexo new post ‘名字’</code>时，会直接在<code style="color:red">source_post</code>中生成一个md文件和一个放图片的同名文件夹。</p>
-<h5 id="2-安装hexo-asset-image插件"><a href="#2-安装hexo-asset-image插件" class="headerlink" title="2.安装hexo-asset-image插件"></a>2.安装<code style="color:red">hexo-asset-image</code>插件</h5><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-<span class="built_in">image</span> --<span class="built_in">save</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-安装hexo-asset-image插件"><a href="#2-安装hexo-asset-image插件" class="headerlink" title="2.安装hexo-asset-image插件"></a>2.安装<code style="color:red">hexo-asset-image</code>插件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
 <h5 id="3-使用-图片描述-文件夹名-图片名-引用图片"><a href="#3-使用-图片描述-文件夹名-图片名-引用图片" class="headerlink" title="3.使用![图片描述](文件夹名/图片名)引用图片"></a>3.使用<code>![图片描述](文件夹名/图片名)</code>引用图片</h5><p>​        此处需注意，引用路径时使用<code>/</code>而不是Windows下常用的<code>\</code>,因为知识HTML的URL，必须使用<code>/</code>，在有些编辑器中（比如我用的Typora），不论使用哪一种都可以显示图片，但是使用<code>\</code>时的HTML文件路径是有错的，最终导致网页中图片无法显示。</p>
 <p><font size="5" color="red">附：</font>关于<code>[% asset_img slug title %]</code></p>
 <p>​    我查看许多人关于这个描述，这是hexo的一个标签插件，可以解决<code>![alt](path)</code>引用的图片无法在主页显示的问题。但是经过我的测试，我发现<code>![alt](path)</code>引用的图片可以在主页和文章中完美显示。并且不知道是否因为版本问题，在md文件中使用<code>[% asset_img slug title %]</code>反而无法在网页中正常显示。使用<code>hexo g</code>之后查看本地<code>public\2019\08\10\personal-blog\index.html</code> (该博文的路径)，查看图片引用处代码，发现使用<code>[% asset_img slug title %]</code>生成的HTML源码的图片路径有误。</p>
@@ -538,7 +538,7 @@
 <p><img src="/2019/08/10/personal-blog/cmp2.png" alt="cmp2"></p>
 <p>注：以上内容中<code>[% asset_img slug title %]</code>的<code>[]</code>应该换为<code>{}</code>，在hexo生成的HTML文件中无法显示，故以此代替。</p>
 <h4 id="3-部署到GitHub的网页与本地部署的网页不一致"><a href="#3-部署到GitHub的网页与本地部署的网页不一致" class="headerlink" title="3.部署到GitHub的网页与本地部署的网页不一致"></a>3.部署到GitHub的网页与本地部署的网页不一致</h4><p>最常见的一种情况就是背景图片不见了，查看GitHub上的仓库中的存放位置，发现所部署的背景图片存在，但是访问时就是无法显示，只需在本地博客文件夹目录下打开cmd或者git，输入:</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo clean</span></span><br><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>重复几次，耐心等待网页刷新，背景图片便能显示。</p>
 <p>此外，我还遇到了代码块的复制按钮和打赏按钮变形的情况，使用上述操作后也恢复了正常。</p>
 <h4 id="4-代码块颜色显示"><a href="#4-代码块颜色显示" class="headerlink" title="4.代码块颜色显示"></a>4.代码块颜色显示</h4><p>代码块分为长代码块和短代码块。短代码块使用”`”来包裹代码，我尝试过使用如下代码来使得短代码块显示其他颜色：</p>
@@ -547,9 +547,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;code style=&quot;color:red&quot;&gt;代码块&lt;/code&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="5-数学符号渲染失败"><a href="#5-数学符号渲染失败" class="headerlink" title="5.数学符号渲染失败"></a>5.数学符号渲染失败</h4><p>我们在md文件中输入$$来实现数学符号，却发现网页中仍然存在$符号，数学公式也没有渲染成功，查阅资料后发现都是hexo自带数学公式渲染插件惹的祸，由于某些符号与hexo的标签符号冲突，导致不能成功渲染。只需更换对应插件就可以了。</p>
 <p>在本地博客文件夹目录下打开cmd或者git，输入:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">uninstall</span> hexo-renderer-marked <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-renderer-kramed <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
 <p>更换插件后，新插件仍然由符号冲突，我们需要手动更改。修改博客根目录下的<code style="color:red">node_modules\hexo-renderer-kramed\lib\rules\inline.js</code>的内容:</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//escape: /^<span class="symbol">\\</span>([<span class="symbol">\\</span>`*&#123;&#125;<span class="symbol">\[</span><span class="symbol">\]</span>()#$+<span class="symbol">\-</span>.!_&gt;])/,</span><br><span class="line">escape: /^<span class="symbol">\\</span>([`*<span class="symbol">\[</span><span class="symbol">\]</span>()#$+<span class="symbol">\-</span>.!_&gt;])/,</span><br><span class="line"></span><br><span class="line">//em: /^<span class="symbol">\b</span>_((?:__|[<span class="symbol">\s</span><span class="symbol">\S</span>])+?)_<span class="symbol">\b</span>|^<span class="symbol">\*</span>((?:<span class="symbol">\*</span><span class="symbol">\*</span>|[<span class="symbol">\s</span><span class="symbol">\S</span>])+?)<span class="symbol">\*</span>(?!<span class="symbol">\*</span>)/,</span><br><span class="line">em: /^<span class="symbol">\*</span>((?:<span class="symbol">\*</span><span class="symbol">\*</span>|[<span class="symbol">\s</span><span class="symbol">\S</span>])+?)<span class="symbol">\*</span>(?!<span class="symbol">\*</span>)/,</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br><span class="line">escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</span><br><span class="line"></span><br><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -698,7 +698,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -719,7 +719,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -746,7 +748,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -871,7 +877,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">7k</span>
+    <span title="站点总字数">14k</span>
   
 
   
@@ -882,7 +888,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">18 分钟</span>
+    <span title="站点阅读时长">35 分钟</span>
   
 </div>
 
