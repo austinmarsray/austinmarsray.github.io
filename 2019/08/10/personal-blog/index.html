@@ -116,10 +116,11 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/blog-logo.jpg">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/2.jpg">
+<meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/tagcloud.png">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/1.png">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/cmp1.png">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/08/10/personal-blog/cmp2.png">
-<meta property="og:updated_time" content="2019-08-31T10:55:36.870Z">
+<meta property="og:updated_time" content="2019-09-16T11:55:24.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客那些事儿">
 <meta name="twitter:description" content="从今年7月决定搭建个人博客到今天博客基本成形经历了一个月的时间，从对博客搭建一无所知到小有心得，中间犯过许多错，踩过许多坑；有的坑是借鉴别人的经验度过的，有的坑是自己不断尝试找到解决方法的。所以想记录下我在搭建博客以及之后的使用过程中遇到的坑，希望对读者有所裨益。">
@@ -433,7 +434,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-31 18:55:36" itemprop="dateModified" datetime="2019-08-31T18:55:36+08:00">2019-08-31</time>
+                <time title="修改时间：2019-09-16 19:55:24" itemprop="dateModified" datetime="2019-09-16T19:55:24+08:00">2019-09-16</time>
               </span>
             
           
@@ -474,7 +475,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">3k</span>
+              <span title="本文字数">6.1k</span>
             </span>
           
 
@@ -486,7 +487,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">7 分钟</span>
+              <span title="阅读时长">15 分钟</span>
             </span>
           
 
@@ -512,40 +513,63 @@
 <hr>
 <p>​                                                                        <strong><font color="red" size="5">此博客长期更新</font></strong></p>
 <hr>
-<h3 id="一、搭建博客踩的坑"><a href="#一、搭建博客踩的坑" class="headerlink" title="一、搭建博客踩的坑"></a>一、搭建博客踩的坑</h3><h4 id="1-我的学习对象"><a href="#1-我的学习对象" class="headerlink" title="1.我的学习对象"></a>1.我的学习对象</h4><p>​    <a href="https://www.lixint.me" target="_blank" rel="noopener"><font color="blue">LixT</font></a>大佬的博客搭建教程在我所看过的所有教程中堪称是<font color="red" size="4">最 </font> <font color="red" size="4">最</font>  <font color="red" size="5">最 0基础</font>  的。我的个人博客基本是按照LixT的教程实现的。但是在过程中还是遇到了一些麻烦，还有一些思路上的不同，所以这篇博文就相当于是对LixT教程的一个小小的补充。</p>
-<h4 id="2-本地测试无法访问"><a href="#2-本地测试无法访问" class="headerlink" title="2.本地测试无法访问"></a>2.本地测试无法访问</h4><p><img src="/2019/08/10/personal-blog/2.jpg" alt="2"></p>
+<h3 id="1-搭建博客踩的坑"><a href="#1-搭建博客踩的坑" class="headerlink" title="1.搭建博客踩的坑"></a>1.搭建博客踩的坑</h3><h4 id="1-1-我的学习对象"><a href="#1-1-我的学习对象" class="headerlink" title="1.1.我的学习对象"></a>1.1.我的学习对象</h4><p>​    <a href="https://www.lixint.me" target="_blank" rel="noopener"><font color="blue">LixT</font></a>大佬的博客搭建教程在我所看过的所有教程中堪称是<font color="red" size="4">最 </font> <font color="red" size="4">最</font>  <font color="red" size="5">最 0基础</font>  的。我的个人博客基本是按照LixT的教程实现的。但是在过程中还是遇到了一些麻烦，还有一些思路上的不同，所以这篇博文就相当于是对LixT教程的一个小小的补充。</p>
+<h4 id="1-2-本地测试无法访问"><a href="#1-2-本地测试无法访问" class="headerlink" title="1.2.本地测试无法访问"></a>1.2.本地测试无法访问</h4><p><img src="/2019/08/10/personal-blog/2.jpg" alt="2"></p>
 <p>​    在搭建静态博客的过程中，为了便于查看博客内容或者页面的效果，我们常常进行本地测试。<code style="color:red">hexo s</code>后在本地浏览器输入localhost即可查看博客内容，但是也可能会遇到上图中的情况。</p>
 <p>​    输入<code style="color:red">hexo s</code>默认去使用本地4000端口，但是本地4000端口被其他服务占用，导致不能访问。此时我们可以更换一个本地部署的端口：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
 <p>​    这个命令将本地部署到5000端口，浏览器URL则填入localhost:5000。</p>
 <p>​    当然，更换为4001端口之类的也是可以的，浏览器输入的URL要与设定的端口一致。</p>
-<h3 id="二、博客维护踩的坑"><a href="#二、博客维护踩的坑" class="headerlink" title="二、博客维护踩的坑"></a>二、博客维护踩的坑</h3><h4 id="1-lt-more-gt-失效"><a href="#1-lt-more-gt-失效" class="headerlink" title="1.&lt;! -- more --&gt;失效"></a>1.<code>&lt;! -- more --&gt;</code>失效</h4><p>​    对于较长的博文，博文在主页展示时如果全部展示不仅不美观，而且十分的浪费空间。在Markdown的语法中，我们可以在博客中使用<code>&lt;! -- more --&gt;</code>,之前的内容可以在主页显示，之后的内容进入博客后才能看到。但是经常遇到的问题确实博文主页的确不是显示全文，但是显示的内容却也不是按照我们的想法来进行分割的。对想要在主页展示部分图片的用户造成了极大的困扰。</p>
+<h4 id="1-3-添加标签页和分类页"><a href="#1-3-添加标签页和分类页" class="headerlink" title="1.3.添加标签页和分类页"></a>1.3.添加标签页和分类页</h4><p>在<code>source\tags\index.md</code> 中的配置文件中添加<code>type: tags</code>，即可创建标签页。<br>在<code>source\categories\index.md</code>中配置文件添加<code>type: categories</code>即可创建分类页。</p>
+<p>且两者无需手动添加标签或分类，只要在每篇博文的开头设置tags和categories，则标签或分类将自动加入标签页和分类页。</p>
+<h4 id="1-4-更改标签云样式"><a href="#1-4-更改标签云样式" class="headerlink" title="1.4.更改标签云样式"></a>1.4.更改标签云样式</h4><p>在<code>themes\next\layout\page.swig</code>文件中做以下改动：<br>原配置：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.type === 'tags' %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag-cloud"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag-cloud-title"</span>&gt;</span></span><br><span class="line">            &#123;% set visibleTags = 0 %&#125;</span><br><span class="line">            &#123;% for tag in site.tags %&#125;</span><br><span class="line">              &#123;% if tag.length %&#125;</span><br><span class="line">                &#123;% set visibleTags += 1 %&#125;</span><br><span class="line">              &#123;% endif %&#125;</span><br><span class="line">            &#123;% endfor %&#125;</span><br><span class="line">            &#123;&#123; _p('counter.tag_cloud', visibleTags) &#125;&#125;</span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag-cloud-tags"</span>&gt;</span></span><br><span class="line">            &#123;% if not theme.tagcloud %&#125;</span><br><span class="line">		&#123;&#123; tagcloud(&#123;min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'&#125;) &#125;&#125;</span><br><span class="line">            &#123;% else %&#125;</span><br><span class="line">              &#123;&#123; tagcloud(&#123;min_font: theme.tagcloud.min, max_font: theme.tagcloud.max, amount: theme.tagcloud.amount, color: true, start_color: theme.tagcloud.start, end_color: theme.tagcloud.end&#125;) &#125;&#125;</span><br><span class="line">            &#123;% endif %&#125;</span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更改为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">     &#123;% if page.type === 'tags' %&#125;</span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag-cloud"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag-cloud-title"</span>&gt;</span></span><br><span class="line">           &#123;% set visibleTags = 0 %&#125;</span><br><span class="line">           &#123;% for tag in site.tags %&#125;</span><br><span class="line">             &#123;% if tag.length %&#125;</span><br><span class="line">               &#123;% set visibleTags += 1 %&#125;</span><br><span class="line">             &#123;% endif %&#125;</span><br><span class="line">           &#123;% endfor %&#125;</span><br><span class="line">           &#123;&#123; _p('counter.tag_cloud', visibleTags) &#125;&#125;</span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag-cloud-tags"</span>&gt;</span></span><br><span class="line">           &#123;% if not theme.tagcloud %&#125;</span><br><span class="line">	&#123;&#123; tagcloud(&#123;min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'&#125;) &#125;&#125;</span><br><span class="line">           &#123;% else %&#125;</span><br><span class="line">             &#123;&#123; tagcloud(&#123;min_font: 13, max_font: 31, amount: 1000, color: true, start_color: '#9733EE', end_color: '#FF512F'&#125;) &#125;&#125;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>标签的颜色和大小均可改变样式，只需要含color和font的项就可，具体改动可根据自己的想法来实现。上述改动的颜色为紫色，效果图如下：</p>
+<p><img src="/2019/08/10/personal-blog/tagcloud.png" alt="tagcloud"></p>
+<p>​          </p>
+<h4 id="1-5-显示Mist主题副标题"><a href="#1-5-显示Mist主题副标题" class="headerlink" title="1.5.显示Mist主题副标题"></a>1.5.显示Mist主题副标题</h4><p>Mist主题中默认是隐藏副标题的，在<code>themes\next\source\css\_schemes\Mist\_logo.styl</code>下将<code>.site-subtitle { display: none; }</code>修改为<code>.site-subtitle { display: yes; }</code>即可展示副标题。副标题内容的设置在博客配置文件中设置。</p>
+<h4 id="1-6-去除Mist主题侧边框阴影"><a href="#1-6-去除Mist主题侧边框阴影" class="headerlink" title="1.6.去除Mist主题侧边框阴影"></a>1.6.去除Mist主题侧边框阴影</h4><p>在Mist主题中，默认进入文章后会弹出一个侧边框用于显示文章章节、当前阅读条目等。但是侧边框边框的阴影效果实在时太难看了，提供给大家一个去除侧边框阴影的办法。<br>在<code>themes\next\source\css\_common\components\sidebar\sidebar.styl</code>中将<code>box-shadow: inset 0 2px 2px black;</code>这一行内容注释掉即可。</p>
+<h4 id="1-7-侧边栏添加背景图"><a href="#1-7-侧边栏添加背景图" class="headerlink" title="1.7.侧边栏添加背景图"></a>1.7.侧边栏添加背景图</h4><p>如果你需要在你的侧边栏加上你想要的图案，那么在<code>themes\next\source\css\_custom\custom.styl</code>中添加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.sidebar &#123;</span><br><span class="line">  background: url(/images/sidebar.jpg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>背景图的路径可以根据自己的需要进行修改，甚至可以改为所需图片的网络URL。</p>
+<p>如果时想将侧边栏这只为纯色，将background改为color，并设置为需要的颜色的十六进制表示。</p>
+<h3 id="2-博客维护踩的坑"><a href="#2-博客维护踩的坑" class="headerlink" title="2.博客维护踩的坑"></a>2.博客维护踩的坑</h3><h4 id="2-1-lt-more-gt-失效"><a href="#2-1-lt-more-gt-失效" class="headerlink" title="2.1.&lt;! -- more --&gt;失效"></a>2.1.<code>&lt;! -- more --&gt;</code>失效</h4><p>​    对于较长的博文，博文在主页展示时如果全部展示不仅不美观，而且十分的浪费空间。在Markdown的语法中，我们可以在博客中使用<code>&lt;! -- more --&gt;</code>,之前的内容可以在主页显示，之后的内容进入博客后才能看到。但是经常遇到的问题确实博文主页的确不是显示全文，但是显示的内容却也不是按照我们的想法来进行分割的。对想要在主页展示部分图片的用户造成了极大的困扰。</p>
 <p><img src="/2019/08/10/personal-blog/1.png" alt="1"></p>
 <p>​    在主题配置文件中找到上图内容，配置文件中<code style="color:blue">excerpt_description</code>默认设置为true，这导致主页始终只能显示md文件的front-matter（可理解为 序言）部分的 description内容。将<code style="color:blue">excerpt_description</code>设置为false后，<code>&lt;! -- more --&gt;</code>就能有效果了。</p>
 <p>​    如果不想进入博文后直接从<code>&lt;! -- more --&gt;</code>后的内容开始阅读，</p>
 <p>可以将<code style="color:blue">scroll_to_more</code>设置为false，此项根据个人需要决定。</p>
-<h4 id="2-网页中图片无法显示"><a href="#2-网页中图片无法显示" class="headerlink" title="2.网页中图片无法显示"></a>2.网页中图片无法显示</h4><p>​    这个问题是很多人都遇到过的问题，在本地 编辑，甚至在一些Markdown编辑器中图片都能正常显示，但是网页中却显示不出来。</p>
+<h4 id="2-2-网页中图片无法显示"><a href="#2-2-网页中图片无法显示" class="headerlink" title="2.2.网页中图片无法显示"></a>2.2.网页中图片无法显示</h4><p>​    这个问题是很多人都遇到过的问题，在本地 编辑，甚至在一些Markdown编辑器中图片都能正常显示，但是网页中却显示不出来。</p>
 <p>​    博客编辑时，图片的组织有两种方式，一种是直接存放在<code style="color:red">source\images</code>文件夹之内，但是并不太推荐此种方式，因为含有多篇博文时，所有博文的图片都放在图一个文件夹中，不利于图片的管理；第二种方式可以形象的理解为“一个萝卜一个坑”，每篇博文，都对应有一个同名文件夹，将本篇博文的图片放在该文件夹中即可。</p>
 <p>​    第二种方式的具体操作如下：</p>
-<h5 id="1-修改主题配置文件"><a href="#1-修改主题配置文件" class="headerlink" title="1.修改主题配置文件"></a>1.修改主题配置文件</h5><p>​        将主题配置文件中的<code style="color:red">post_asset_folder</code>设置为true，这样每次用命令<code style="color:red">hexo new post ‘名字’</code>时，会直接在<code style="color:red">source_post</code>中生成一个md文件和一个放图片的同名文件夹。</p>
-<h5 id="2-安装hexo-asset-image插件"><a href="#2-安装hexo-asset-image插件" class="headerlink" title="2.安装hexo-asset-image插件"></a>2.安装<code style="color:red">hexo-asset-image</code>插件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-<h5 id="3-使用-图片描述-文件夹名-图片名-引用图片"><a href="#3-使用-图片描述-文件夹名-图片名-引用图片" class="headerlink" title="3.使用![图片描述](文件夹名/图片名)引用图片"></a>3.使用<code>![图片描述](文件夹名/图片名)</code>引用图片</h5><p>​        此处需注意，引用路径时使用<code>/</code>而不是Windows下常用的<code>\</code>,因为知识HTML的URL，必须使用<code>/</code>，在有些编辑器中（比如我用的Typora），不论使用哪一种都可以显示图片，但是使用<code>\</code>时的HTML文件路径是有错的，最终导致网页中图片无法显示。</p>
-<p><font size="5" color="red">附：</font>关于<code>[% asset_img slug title %]</code></p>
+<p>1.修改主题配置文件</p>
+<p>​        将主题配置文件中的<code style="color:red">post_asset_folder</code>设置为true，这样每次用命令<code style="color:red">hexo new post ‘名字’</code>时，会直接在<code style="color:red">source_post</code>中生成一个md文件和一个放图片的同名文件夹。</p>
+<p>2.安装<code style="color:red">hexo-asset-image</code>插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<p>3.使用<code>![图片描述](文件夹名/图片名)</code>引用图片</p>
+<p>​        此处需注意，引用路径时使用<code>/</code>而不是Windows下常用的<code>\</code>,因为知识HTML的URL，必须使用<code>/</code>，在有些编辑器中（比如我用的Typora），不论使用哪一种都可以显示图片，但是使用<code>\</code>时的HTML文件路径是有错的，最终导致网页中图片无法显示。</p>
+<font size="5" color="red">附：</font>
+
 <p>​    我查看许多人关于这个描述，这是hexo的一个标签插件，可以解决<code>![alt](path)</code>引用的图片无法在主页显示的问题。但是经过我的测试，我发现<code>![alt](path)</code>引用的图片可以在主页和文章中完美显示。并且不知道是否因为版本问题，在md文件中使用<code>[% asset_img slug title %]</code>反而无法在网页中正常显示。使用<code>hexo g</code>之后查看本地<code>public\2019\08\10\personal-blog\index.html</code> (该博文的路径)，查看图片引用处代码，发现使用<code>[% asset_img slug title %]</code>生成的HTML源码的图片路径有误。</p>
 <p>​    <code>![alt](path)</code>生成的正常的路径源码：</p>
 <p><img src="/2019/08/10/personal-blog/cmp1.png" alt="cmp1"></p>
 <p>​    <code>[% asset_img slug title %]</code>生成的错误的路径源码：</p>
 <p><img src="/2019/08/10/personal-blog/cmp2.png" alt="cmp2"></p>
 <p>注：以上内容中<code>[% asset_img slug title %]</code>的<code>[]</code>应该换为<code>{}</code>，在hexo生成的HTML文件中无法显示，故以此代替。</p>
-<h4 id="3-部署到GitHub的网页与本地部署的网页不一致"><a href="#3-部署到GitHub的网页与本地部署的网页不一致" class="headerlink" title="3.部署到GitHub的网页与本地部署的网页不一致"></a>3.部署到GitHub的网页与本地部署的网页不一致</h4><p>最常见的一种情况就是背景图片不见了，查看GitHub上的仓库中的存放位置，发现所部署的背景图片存在，但是访问时就是无法显示，只需在本地博客文件夹目录下打开cmd或者git，输入:</p>
+<h4 id="2-3-部署到GitHub的网页与本地部署的网页不一致"><a href="#2-3-部署到GitHub的网页与本地部署的网页不一致" class="headerlink" title="2.3.部署到GitHub的网页与本地部署的网页不一致"></a>2.3.部署到GitHub的网页与本地部署的网页不一致</h4><p>最常见的一种情况就是背景图片不见了，查看GitHub上的仓库中的存放位置，发现所部署的背景图片存在，但是访问时就是无法显示，只需在本地博客文件夹目录下打开cmd或者git，输入:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>重复几次，耐心等待网页刷新，背景图片便能显示。</p>
 <p>此外，我还遇到了代码块的复制按钮和打赏按钮变形的情况，使用上述操作后也恢复了正常。</p>
-<h4 id="4-代码块颜色显示"><a href="#4-代码块颜色显示" class="headerlink" title="4.代码块颜色显示"></a>4.代码块颜色显示</h4><p>代码块分为长代码块和短代码块。短代码块使用”`”来包裹代码，我尝试过使用如下代码来使得短代码块显示其他颜色：</p>
+<h4 id="2-4-代码块颜色显示"><a href="#2-4-代码块颜色显示" class="headerlink" title="2.4.代码块颜色显示"></a>2.4.代码块颜色显示</h4><p>代码块分为长代码块和短代码块。短代码块使用”`”来包裹代码，我尝试过使用如下代码来使得短代码块显示其他颜色：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;font color=red&gt;`代码块`&lt;/font&gt;</span><br></pre></td></tr></table></figure>
 <p>但遗憾的是并非没有达到预期效果，之后去查看也下大佬的网页源码，得到了启发，获得了以下解决方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;code style=&quot;color:red&quot;&gt;代码块&lt;/code&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="5-数学符号渲染失败"><a href="#5-数学符号渲染失败" class="headerlink" title="5.数学符号渲染失败"></a>5.数学符号渲染失败</h4><p>我们在md文件中输入$$来实现数学符号，却发现网页中仍然存在$符号，数学公式也没有渲染成功，查阅资料后发现都是hexo自带数学公式渲染插件惹的祸，由于某些符号与hexo的标签符号冲突，导致不能成功渲染。只需更换对应插件就可以了。</p>
+<font size="4" color="red">后续更新:</font>
+
+<p>对于短代码块而言，可以在配置文件中修改默认设置，从而全局改变短代码块的字体颜色。<br>在<code>themes\next\source\css\_custom\custom.sty</code>中添加如下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//代码块配置</span><br><span class="line">code &#123;</span><br><span class="line">    color: #ff0000;</span><br><span class="line">    background: #fbf7f8;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-5-数学符号渲染失败"><a href="#2-5-数学符号渲染失败" class="headerlink" title="2.5.数学符号渲染失败"></a>2.5.数学符号渲染失败</h4><p>我们在md文件中输入$$来实现数学符号，却发现网页中仍然存在$符号，数学公式也没有渲染成功，查阅资料后发现都是hexo自带数学公式渲染插件惹的祸，由于某些符号与hexo的标签符号冲突，导致不能成功渲染。只需更换对应插件就可以了。</p>
 <p>在本地博客文件夹目录下打开cmd或者git，输入:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
 <p>更换插件后，新插件仍然由符号冲突，我们需要手动更改。修改博客根目录下的<code style="color:red">node_modules\hexo-renderer-kramed\lib\rules\inline.js</code>的内容:</p>
@@ -698,7 +722,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -721,7 +745,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -752,7 +780,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -839,7 +873,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、搭建博客踩的坑"><span class="nav-text">一、搭建博客踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-我的学习对象"><span class="nav-text">1.我的学习对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-本地测试无法访问"><span class="nav-text">2.本地测试无法访问</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、博客维护踩的坑"><span class="nav-text">二、博客维护踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-lt-more-gt-失效"><span class="nav-text">1.&lt;! -- more --&gt;失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-网页中图片无法显示"><span class="nav-text">2.网页中图片无法显示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-修改主题配置文件"><span class="nav-text">1.修改主题配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-安装hexo-asset-image插件"><span class="nav-text">2.安装hexo-asset-image插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-使用-图片描述-文件夹名-图片名-引用图片"><span class="nav-text">3.使用![图片描述](文件夹名/图片名)引用图片</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-部署到GitHub的网页与本地部署的网页不一致"><span class="nav-text">3.部署到GitHub的网页与本地部署的网页不一致</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-代码块颜色显示"><span class="nav-text">4.代码块颜色显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-数学符号渲染失败"><span class="nav-text">5.数学符号渲染失败</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-搭建博客踩的坑"><span class="nav-text">1.搭建博客踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-我的学习对象"><span class="nav-text">1.1.我的学习对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-本地测试无法访问"><span class="nav-text">1.2.本地测试无法访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-添加标签页和分类页"><span class="nav-text">1.3.添加标签页和分类页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-更改标签云样式"><span class="nav-text">1.4.更改标签云样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-显示Mist主题副标题"><span class="nav-text">1.5.显示Mist主题副标题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-去除Mist主题侧边框阴影"><span class="nav-text">1.6.去除Mist主题侧边框阴影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-侧边栏添加背景图"><span class="nav-text">1.7.侧边栏添加背景图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-博客维护踩的坑"><span class="nav-text">2.博客维护踩的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-lt-more-gt-失效"><span class="nav-text">2.1.&lt;! -- more --&gt;失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-网页中图片无法显示"><span class="nav-text">2.2.网页中图片无法显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-部署到GitHub的网页与本地部署的网页不一致"><span class="nav-text">2.3.部署到GitHub的网页与本地部署的网页不一致</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-代码块颜色显示"><span class="nav-text">2.4.代码块颜色显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-数学符号渲染失败"><span class="nav-text">2.5.数学符号渲染失败</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -877,7 +911,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">14k</span>
+    <span title="站点总字数">17k</span>
   
 
   
@@ -888,7 +922,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">35 分钟</span>
+    <span title="站点阅读时长">43 分钟</span>
   
 </div>
 
