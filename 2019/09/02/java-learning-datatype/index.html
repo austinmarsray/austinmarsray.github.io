@@ -115,7 +115,7 @@
 <meta property="og:description" content="从零开始我的Java进阶之路，let&apos;s fight!">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/09/02/java-learning-datatype/logo.png">
-<meta property="og:updated_time" content="2019-09-04T15:28:59.389Z">
+<meta property="og:updated_time" content="2019-09-17T01:16:00.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java进阶之路-数据类型">
 <meta name="twitter:description" content="从零开始我的Java进阶之路，let&apos;s fight!">
@@ -429,7 +429,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-04 23:28:59" itemprop="dateModified" datetime="2019-09-04T23:28:59+08:00">2019-09-04</time>
+                <time title="修改时间：2019-09-17 09:16:00" itemprop="dateModified" datetime="2019-09-17T09:16:00+08:00">2019-09-17</time>
               </span>
             
           
@@ -470,7 +470,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">6.9k</span>
+              <span title="本文字数">8.5k</span>
             </span>
           
 
@@ -482,7 +482,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">17 分钟</span>
+              <span title="阅读时长">21 分钟</span>
             </span>
           
 
@@ -603,14 +603,29 @@
 <p>String类是Java中自带的引用类型，其中变量a,b实质上只是一个变量，两者的内存地址相同。而变量则是与a变量相互独立的。</p>
 <p>其实，从上述两个例子中我们可以得知：引用类型对象相互赋值时实质上是就是C++中的引用，变量名只是一种别名；只有new(部分类可以直接使用 ‘=’ 构造对象)的才是独立的对象。</p>
 <p>此外，在函数间传递参数时，引用类型也是地址传递而非值传递。</p>
-<h3 id="4-Java常量"><a href="#4-Java常量" class="headerlink" title="4.Java常量"></a>4.Java常量</h3><p>【等待更新……】</p>
-<h3 id="5-Java数据类型转换"><a href="#5-Java数据类型转换" class="headerlink" title="5.Java数据类型转换"></a>5.Java数据类型转换</h3><p>【等待更新……】</p>
-<h4 id="5-1-自动转换"><a href="#5-1-自动转换" class="headerlink" title="5.1.自动转换"></a>5.1.自动转换</h4><h4 id="5-2-强制转换"><a href="#5-2-强制转换" class="headerlink" title="5.2.强制转换"></a>5.2.强制转换</h4><blockquote id="fn_1">
+<h3 id="4-Java常量"><a href="#4-Java常量" class="headerlink" title="4.Java常量"></a>4.Java常量</h3><p>在程序中存在大量的数据来代表程序的状态，其中有些数据在程序运行过程中值不能发生改变，这些数据在程序中被叫做常量。在 Java 中使用 final 关键字来修饰常量，其使用方法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">double</span> PI=<span class="number">3.14</span>;</span><br></pre></td></tr></table></figure>
+<p>但是final修饰基本类型与引用类型的效果又不一样，两者区别如下：</p>
+<p>1.final修饰基本数据类型时，作用与C++中的const类似。例如上述的 PI 常量，值是不可改变的。</p>
+<p>2.final修饰引用数据类型时，引用变量不能变，引用变量所指向的对象中的内容是可以改变的。也就是说这个常量将不可以再去表示其他的变量，这个常量与其内存地址绑定，但是并不限制内存地址中的内容变化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test10</span> </span>&#123;</span><br><span class="line">	<span class="comment">// final修饰引用类型的变量</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> StringBuffer a = <span class="keyword">new</span> StringBuffer(<span class="string">"Hello Java!"</span>);</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// a = new StringBuffer("hehe");</span></span><br><span class="line">        <span class="comment">// 上一行代码编译报错，a将不可能再与其他内存地址绑定</span></span><br><span class="line">		</span><br><span class="line">        a.append(<span class="string">"Hello World!"</span>);</span><br><span class="line">        <span class="comment">// 虽然a是一个（引用类型）常量，但是对象的内容仍可以改变，并且可以调用类中的方法</span></span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意下final与C++中的const的区别：在修饰基本数据类型时，两者作用相同；但是修饰引用数据类型时，const修饰的对象内容不能变，只能使用常函数，final修饰的对象内容可以变，可以使用类中定义的所有方法。</p>
+<h3 id="5-Java数据类型转换"><a href="#5-Java数据类型转换" class="headerlink" title="5.Java数据类型转换"></a>5.Java数据类型转换</h3><p>基本原则：</p>
+<p>1.不能对boolean类型进行类型转换。</p>
+<p>2.不能把对象类型转换成不相关类的对象。</p>
+<p>基本数据类型的转换等级：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">低----------------------------------------------&gt;高</span><br><span class="line">byte,short,char -&gt; int -&gt; long -&gt; float -&gt; double</span><br></pre></td></tr></table></figure>
+<h4 id="5-1-自动转换"><a href="#5-1-自动转换" class="headerlink" title="5.1.自动转换"></a>5.1.自动转换</h4><p>低级变量可以不用显示（强制）转换为高级变量，直接赋值就可以默认完成数据类型转化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> A = <span class="string">'a'</span>;</span><br><span class="line"><span class="keyword">int</span> num = A + <span class="number">3</span>;	<span class="comment">//num=100</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-2-强制转换"><a href="#5-2-强制转换" class="headerlink" title="5.2.强制转换"></a>5.2.强制转换</h4><p>把容量大的类型转换为容量小的类型时必须使用强制类型转换，但是有可能丢失精度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForcedTypeConversion</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i1 = <span class="number">123</span>;</span><br><span class="line">        <span class="keyword">int</span> i2 = <span class="number">280</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">byte</span> b1 = (<span class="keyword">byte</span>)i1;		<span class="comment">//强制类型转换为byte</span></span><br><span class="line">        <span class="keyword">byte</span> b2 = (<span class="keyword">byte</span>)i2;		<span class="comment">//byte最高储存127.超出后强制转换结果将会出错</span></span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"123(int)强制类型转换为byte后的值等于"</span>+b1);</span><br><span class="line">        System.out.println(<span class="string">"280(int)强制类型转换为byte后的值等于"</span>+b2);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//运行结果：</span></span><br><span class="line">        <span class="comment">//123(int)强制类型转换为byte后的值等于123</span></span><br><span class="line">		<span class="comment">//280(int)强制类型转换为byte后的值等于24</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote id="fn_1">
 <sup>1</sup>. 计算机中内存最小存储单位为位(bit),每一位中只有0和1两种状态；计算机中表示信息的最小单位是字节(byte),计算机中，一个内存地址代表一个字节（byte）的存储空间。两者存在关系：1 byte=8 bit.<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
 </blockquote>
 <blockquote id="fn_2">
 <sup>2</sup>. 本博客中基本数据类型部分大量引用了<a href="https://www.runoob.com/java/java-basic-datatypes.html" target="_blank" rel="noopener">菜鸟教程</a>的内容，仅对少量阐述不清的内容进行了补充。<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
 </blockquote>
+<p>—————————————————————————————————The End——————————————————————————————————————-</p>
 
       
     </div>
@@ -784,8 +799,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -802,10 +815,6 @@
                     
                   
                     
-                    
-                      
-                    
-                      
                     
                       
                     
@@ -948,7 +957,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">17k</span>
+    <span title="站点总字数">19k</span>
   
 
   
@@ -959,7 +968,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">43 分钟</span>
+    <span title="站点阅读时长">47 分钟</span>
   
 </div>
 
