@@ -105,7 +105,8 @@
 <meta property="og:description" content="学习C++已经有一年的时间了，跟随大学课程学习了C++语言的基础。但是最近越发的感觉C++知识的储备不足，因此下定决心继续深入学习C++。我的第一步计划是重读C++ Primer Plus，在此博文中我将记录下我读后的一些新的收获。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/09/13/CPlusPlus-study/c++-logo.jpg">
-<meta property="og:updated_time" content="2019-09-16T09:03:51.130Z">
+<meta property="og:image" content="https://austinmarsray.github.io/2019/09/13/CPlusPlus-study/procession.png">
+<meta property="og:updated_time" content="2019-09-19T12:54:56.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++深入学习 之 再读C++ Primer Plus">
 <meta name="twitter:description" content="学习C++已经有一年的时间了，跟随大学课程学习了C++语言的基础。但是最近越发的感觉C++知识的储备不足，因此下定决心继续深入学习C++。我的第一步计划是重读C++ Primer Plus，在此博文中我将记录下我读后的一些新的收获。">
@@ -419,7 +420,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-16 17:03:51" itemprop="dateModified" datetime="2019-09-16T17:03:51+08:00">2019-09-16</time>
+                <time title="修改时间：2019-09-19 20:54:56" itemprop="dateModified" datetime="2019-09-19T20:54:56+08:00">2019-09-19</time>
               </span>
             
           
@@ -460,7 +461,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">266</span>
+              <span title="本文字数">2k</span>
             </span>
           
 
@@ -472,7 +473,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">5 分钟</span>
             </span>
           
 
@@ -497,7 +498,38 @@
 <a id="more"></a>
 <h3 id="1-C-语言概述"><a href="#1-C-语言概述" class="headerlink" title="1.C++语言概述"></a>1.C++语言概述</h3><p>C++与C的关系密切，两者不仅同出于贝尔实验室，并且C++本身就是C的一个超集。早期的C++并没有直接到目标语言（机器语言）的编译器，而是使用一种cfront的编译器将C++翻译为C源码，再通过标准C编译器翻译为目标语言。</p>
 <p>再加上后期加入的泛型编程的思想，C++集OOP、面向过程的方法、泛型编程于一体。OOP赋予了C++将问题所涉及概念联系起来的能力，C语言赋予了C++紧密联系内存的能力，而泛型编程思想大大提高了C++程序员的编程效率，促进了C++的广泛传播。</p>
-<h3 id="2-C-程序创建过程"><a href="#2-C-程序创建过程" class="headerlink" title="2.C++程序创建过程"></a>2.C++程序创建过程</h3><h3 id="3-C-编译过程"><a href="#3-C-编译过程" class="headerlink" title="3.C++编译过程"></a>3.C++编译过程</h3><h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3>
+<h3 id="2-C-程序编译过程"><a href="#2-C-程序编译过程" class="headerlink" title="2.C++程序编译过程"></a>2.C++程序编译过程</h3><p>对于一个已经写好的的C++源代码而言，从源代码到可执行文件大致理解需要两步：编译和链接。编译将源代码生成目标代码，链接将目标代码和库文件或者其他目标代码链接在一起，形成可执行文件。</p>
+<p>但是真正的过程确实远比此复杂得多。鉴于作者目前的水平，对于这部分内容也只能是稍稍深入了解。</p>
+<p>从源代码到可执行文件具体需要经过四步，分别是编译预处理、编译优化、汇编和链接。</p>
+<p><img src="/2019/09/13/CPlusPlus-study/procession.png" alt="process"></p>
+<font color="red">1.编译预处理</font>
+
+<p> 编译是读取源程序（字符流），对之进行词法和语法的分析，将高级语言指令转换为功能等效的汇编代码，源文件的编译过程包含两个主要阶段：</p>
+<h5 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h5><p>编译预处理是对其中的伪指令（以# 开头的指令）和特殊符号进行处理。</p>
+<p>伪指令主要包括以下四个方面：</p>
+<p>1) 宏定义指令，如# define Name TokenString，#undef等，进行宏替换、宏展开。</p>
+<p>2) 条件编译指令，如# ifdef，#ifndef，# endif等，这些伪指令的引入使得程序员可以通过定义不同的宏来决定编译程序对哪些代码进行处理。预编译程序将根据有关的文件，将那些不必要的代码过滤掉。</p>
+<p>3) 头文件包含指令，如#include “FileName” 或者#include &lt; FileName&gt; 等，将用到的头文件中的声明整合到源代码中，但是并不包括对应的实现。有这些声明，能让源代码成功通过第二步中的语法检查，且鉴于同一项目中不同源代码可能会包含同一头文件，如若此时整合对应的方法，最后链接后会导致同一方法可能会被多次包含。</p>
+<p>4) 特殊符号，预编译程序可以识别一些特殊的符号，例如在源程序中出现的LINE标识将被解释为当前行号（十进制数），FILE则被解释为当前被编译的C源程序的名称。预编译程序对于在源程序中出现的这些串将用合适的值进行替换。</p>
+<font color="red">2.编译优化</font>
+
+<p>在这一步中，编译器将对程序进行词法、语法等分析，优化代码并产生汇编代码。</p>
+<p>也就是说，我们平时在编译时（VS等软件可以在编辑时及时报错）遇到的语法错误，都是在这一步检查出来的。</p>
+<p>优化处理是编译系统中一项比较艰深的技术。优化的方向主要有两个方向：一是编译技术方面的，此方面的优化在任何平台都有效果；二是针对硬件所做的优化，此种优化依赖于计算机，针对性强，效果也较好，比如Clang（LLVM）就专门针对苹果的硬件做过优化。</p>
+<font color="red">3.汇编</font>
+
+<p>汇编过程实际上指把汇编语言代码翻译成目标机器指令的过程。</p>
+<p>对于处理的每一个C++源程序，都将最终经过这一处理而得到相应的目标文件（二进制机器语言）。也就是说一个程序有多个源代码文件组成，则每个源代码都会生成一个对应的目标语言程序(.o)，之后在链接过程中整合。</p>
+<p>目标文件由段组成。通常一个目标文件中至少有两个段：</p>
+<p>1) 代码段：该段中所包含的主要是程序的指令。该段一般是可读和可执行的，但一般却不可写。</p>
+<p>2) 数据段：主要存放程序中要用到的各种全局变量或静态的数据。一般数据段都是可读，可写，可执行的。</p>
+<font color="red">4.链接</font>
+
+<p>链接就是将有关的目标文件彼此相连接或将库文件链接到目标文件，使得所有的这些目标文件成为一个能够被操作系统装入执行的统一整体。</p>
+<p>链接处理可分为两种：</p>
+<p>（1）静态链接 ：函数的代码将从其所在地静态链接库中被拷贝到最终的可执行程序中，这样该程序在被执行时这些代码将被装入到该进程的虚拟地址空间中。静态链接产生的可执行文件一般较大，且不够灵活，软件版本升级时一般都需要下载整个软件并重新安装。</p>
+<p>（2）动态链接：函数的代码被放到称作是动态链接库或共享对象的某个目标文件中。链接程序此时所作的只是在最终的可执行程序中记录下共享对象的名字以及其它少量的登记信息。在此可执行文件被执行时，动态链接库的全部内容将被映射到运行时相应进程的虚地址空间。动态链接程序将根据可执行程序中记录的信息找到相应的函数代码。动态链接能够使最终的可执行文件比较短小，并且当共享对象被多个进程使用时能节约一些内存，因为在内存中只需要保存一份此共享对象的代码，并且对于一些软件版本升级，只需要更换部分的dll文件即可，不用大费周章的重新安装。但在某些情况下动态链接可能带来一些性能上损害。</p>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3>
       
     </div>
 
@@ -784,7 +816,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-C-语言概述"><span class="nav-text">1.C++语言概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-C-程序创建过程"><span class="nav-text">2.C++程序创建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-C-编译过程"><span class="nav-text">3.C++编译过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4"><span class="nav-text">4.</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-C-语言概述"><span class="nav-text">1.C++语言概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-C-程序编译过程"><span class="nav-text">2.C++程序编译过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#编译预处理"><span class="nav-text">编译预处理</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#3"><span class="nav-text">3.</span></a></li></div>
             
 
           </div>
@@ -822,7 +854,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">19k</span>
+    <span title="站点总字数">20k</span>
   
 
   
@@ -833,7 +865,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">47 分钟</span>
+    <span title="站点阅读时长">51 分钟</span>
   
 </div>
 
