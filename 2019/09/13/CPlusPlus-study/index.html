@@ -99,16 +99,18 @@
   <meta name="description" content="学习C++已经有一年的时间了，跟随大学课程学习了C++语言的基础。但是最近越发的感觉C++知识的储备不足，因此下定决心继续深入学习C++。我的第一步计划是重读C++ Primer Plus，在此博文中我将记录下我读后的一些新的收获。">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++深入学习 之 再读C++ Primer Plus">
+<meta property="og:title" content="Austin的小站">
 <meta property="og:url" content="https://austinmarsray.github.io/2019/09/13/CPlusPlus-study/index.html">
 <meta property="og:site_name" content="Austin的小站">
 <meta property="og:description" content="学习C++已经有一年的时间了，跟随大学课程学习了C++语言的基础。但是最近越发的感觉C++知识的储备不足，因此下定决心继续深入学习C++。我的第一步计划是重读C++ Primer Plus，在此博文中我将记录下我读后的一些新的收获。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/09/13/CPlusPlus-study/c++-logo.jpg">
 <meta property="og:image" content="https://austinmarsray.github.io/2019/09/13/CPlusPlus-study/procession.png">
-<meta property="og:updated_time" content="2019-09-19T14:01:04.264Z">
+<meta property="og:image" content="https://austinmarsray.github.io/2019/09/13/CPlusPlus-study/compile-command.png">
+<meta property="og:image" content="https://austinmarsray.github.io/2019/09/13/CPlusPlus-study/compile-consenquence.png">
+<meta property="og:updated_time" content="2019-09-19T14:07:08.822Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++深入学习 之 再读C++ Primer Plus">
+<meta name="twitter:title" content="Austin的小站">
 <meta name="twitter:description" content="学习C++已经有一年的时间了，跟随大学课程学习了C++语言的基础。但是最近越发的感觉C++知识的储备不足，因此下定决心继续深入学习C++。我的第一步计划是重读C++ Primer Plus，在此博文中我将记录下我读后的一些新的收获。">
 <meta name="twitter:image" content="https://austinmarsray.github.io/2019/09/13/CPlusPlus-study/c++-logo.jpg">
 
@@ -128,7 +130,7 @@
   };
 </script>
 
-  <title>C++深入学习 之 再读C++ Primer Plus | Austin的小站</title>
+  <title> | Austin的小站</title>
   
 
 
@@ -377,7 +379,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">C++深入学习 之 再读C++ Primer Plus
+          <h2 class="post-title" itemprop="name headline">
 
               
             
@@ -420,7 +422,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-19 22:01:04" itemprop="dateModified" datetime="2019-09-19T22:01:04+08:00">2019-09-19</time>
+                <time title="修改时间：2019-09-19 22:07:08" itemprop="dateModified" datetime="2019-09-19T22:07:08+08:00">2019-09-19</time>
               </span>
             
           
@@ -504,8 +506,7 @@
 <p><img src="/2019/09/13/CPlusPlus-study/procession.png" alt="process"></p>
 <font color="red">1.编译预处理</font>
 
-<p> 编译是读取源程序（字符流），对之进行词法和语法的分析，将高级语言指令转换为功能等效的汇编代码，源文件的编译过程包含两个主要阶段：</p>
-<h5 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h5><p>编译预处理是对其中的伪指令（以# 开头的指令）和特殊符号进行处理。</p>
+<p>编译预处理是对其中的伪指令（以# 开头的指令）和特殊符号进行处理。</p>
 <p>伪指令主要包括以下四个方面：</p>
 <p>1) 宏定义指令，如# define Name TokenString，#undef等，进行宏替换、宏展开。</p>
 <p>2) 条件编译指令，如# ifdef，#ifndef，# endif等，这些伪指令的引入使得程序员可以通过定义不同的宏来决定编译程序对哪些代码进行处理。预编译程序将根据有关的文件，将那些不必要的代码过滤掉。</p>
@@ -542,9 +543,13 @@
 <p>此处注意<code>-c</code>为小写c。</p>
 <p>并且对比上述的内容我们可以知道，这个命令并不要求一步一步的执行，可以跳过其中某步执行。</p>
 <p>4.链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">g++ main.o -o main</span><br><span class="line">g++ main.s -o main</span><br><span class="line">g++ main.i -o main</span><br><span class="line">g++ main.cpp -o main</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">g++ main.o -o main</span><br><span class="line">g++ main.s -o main</span><br><span class="line">g++ main.i -o main</span><br><span class="line">g++ main.cpp -o main</span><br><span class="line"></span><br><span class="line">g++ -o main main.o</span><br><span class="line">g++ -o main main.s</span><br><span class="line">g++ -o main main.i</span><br><span class="line">g++ -o main main.cpp</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<p><img src="/2019/09/13/CPlusPlus-study/compile-command.png" alt></p>
+<p><img src="/2019/09/13/CPlusPlus-study/compile-consenquence.png" alt></p>
 <hr>
-<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><p>【等待更新…】</p>
+
       
     </div>
 
@@ -831,7 +836,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-C-语言概述"><span class="nav-text">1.C++语言概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-C-程序编译过程"><span class="nav-text">2.C++程序编译过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#编译预处理"><span class="nav-text">编译预处理</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#3"><span class="nav-text">3.</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-C-语言概述"><span class="nav-text">1.C++语言概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-C-程序编译过程"><span class="nav-text">2.C++程序编译过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3"><span class="nav-text">3.</span></a></li></ol></div>
             
 
           </div>
